@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MelPal Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Barra Superior -->
+    <div class="barra-superior">
+        <div class="conteiner">
+            <div class="acoes-usuario">
+                <a href="#"><i class="fas fa-user"></i> Minha Conta</a>
+                <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+            </div>
+
+            <div class="links-superiores">
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                <a href="#"><i class="fas fa-headset"></i> Atendimento</a>
+                <a href="#"><i class="fas fa-truck"></i> Frete Grátis</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho-principal">
+        <div class="conteiner">
+            <div class="logo">
+                <img src="assets/MelPal.png" alt="MelPal - Loja de Hardware">
+            </div>
+
+            <div class="barra-busca">
+                <form action="#">
+                    <input type="text" placeholder="Buscar produtos...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav class="navegacao-principal">
+        <div class="conteiner">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Hardware</a></li>
+                <li><a href="#">Placas de Vídeo</a></li>
+                <li><a href="#">Processadores</a></li>
+                <li><a href="#">Memórias</a></li>
+                <li><a href="#">Periféricos</a></li>
+                <li><a href="#">Promoções</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <section class="banner-hero">
+        <div class="conteiner">
+            <div class="conteudo-banner">
+                <h1>As Melhores Peças e Periféricos para Seu PC Gamer</h1>
+                <p>Frete Grátis para todo o Brasil em compras acima de R$ 500</p>
+                <a href="#" class="botao">Compre Agora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destaques -->
+    <section class="produtos-destaque">
+        <div class="conteiner">
+            <h2 class="titulo-secao">Produtos em Destaque</h2>
+            <div class="grade-produtos">
+
+                <!-- Produto 1 -->
+                <div class="cartao-produto">
+                    <span class="etiqueta-desconto">-15%</span>
+                    <img src="assets/3080ti.png" alt="Placa de Vídeo RTX 3080">
+                    <h3>Placa de Vídeo RTX 3080 Ti 12GB</h3>
+                    <div class="preco">
+                        <span class="preco-antigo">R$ 8.999,00</span>
+                        <span class="preco-atual">R$ 7.649,00</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 764,90 sem juros</div>
+                    <button class="botao-carrinho">Comprar</button>
+                </div>
+
+                <!-- Produto 2 -->
+                <div class="cartao-produto">
+                    <img src="assets/ryzen9.png" alt="Processador Ryzen 9">
+                    <h3>Processador AMD Ryzen 9 5900X</h3>
+                    <div class="preco">
+                        <span class="preco-atual">R$ 3.299,00</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 329,90 sem juros</div>
+                    <button class="botao-carrinho">Comprar</button>
+                </div>
+
+                <!-- Produto 3 -->
+                <div class="cartao-produto">
+                    <span class="etiqueta-desconto">-20%</span>
+                    <img src="assets/ram32.png" alt="Memória RAM DDR4">
+                    <h3>Memória RAM DDR4 32GB 3200MHz</h3>
+                    <div class="preco">
+                        <span class="preco-antigo">R$ 1.299,00</span>
+                        <span class="preco-atual">R$ 1.039,00</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 103,90 sem juros</div>
+                    <button class="botao-carrinho">Comprar</button>
+                </div>
+
+                <!-- Produto 4 -->
+                <div class="cartao-produto">
+                    <img src="assets/nvme.png" alt="SSD NVMe 1TB">
+                    <h3>SSD NVMe 1TB Kingston</h3>
+                    <div class="preco">
+                        <span class="preco-atual">R$ 435,00</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 43,50 sem juros</div>
+                    <button class="botao-carrinho">Comprar</button>
+                </div>
+
+                <!-- Produto 5 -->
+                <div class="cartao-produto">
+                    <img src="assets/monitor.png" alt="Monitor Gamer">
+                    <h3>Monitor Gamer AOC Hero 27 Full HD 144hz </h3>
+                    <div class="preco">
+                        <span class="preco-atual"> R$ 759,00</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 75,90 sem juros</div>
+                    <button class="botao-carrinho">Comprar</button>
+                </div>
+
+                <!-- Produto 6 -->
+                <div class="cartao-produto">
+                    <span class="etiqueta-desconto">-20%</span>
+                    <img src="assets/controle.png" alt="Controle de Playstation 5">
+                    <h3>Controle Sony DualSense PS5</h3>
+                    <div class="preco">
+                        <span class="preco-antigo">R$ 450,00</span>
+                        <span class="preco-atual">R$ 380,00</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 38,00 sem juros</div>
+                    <button class="botao-carrinho">Comprar</button>
+                </div>
+
+                <!-- Produto 7 -->
+                <div class="cartao-produto">
+                    <img src="assets/teclado.png" alt="Redragon Teclado Mecanico Gamer Fizz RGB">
+                    <h3>Redragon Teclado Mecanico Gamer Fizz</h3>
+                    <div class="preco">
+                        <span class="preco-atual">R$ 170,00</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 17,00 sem juros</div>
+                    <button class="botao-carrinho">Comprar</button>
+                </div>
+
+                <!-- Produto 8  -->
+                <div class="cartao-produto">
+                    <img src="assets/headset.png" alt="Headset Fone de Ouvido">
+                    <h3>Headset Fone de Ouvido Havit HV-H2002d</h3>
+                    <div class="preco">
+                        <span class="preco-atual">R$ 159,00</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 15,90 sem juros</div>
+                    <button class="botao-carrinho">Comprar</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorias -->
+    <section class="categorias">
+        <div class="conteiner">
+            <h2 class="titulo-secao">Nossas Categorias</h2>
+            <div class="grade-categorias">
+                <a href="#" class="cartao-categoria">
+                    <img src="assets/gpu.png" alt="Placas de Vídeo">
+                    <h3>Placas de Vídeo</h3>
+                </a>
+                <a href="#" class="cartao-categoria">
+                    <img src="assets/cpu.png" alt="Processadores">
+                    <h3>Processadores</h3>
+                </a>
+                <a href="#" class="cartao-categoria">
+                    <img src="assets/ram.png" alt="Memórias RAM">
+                    <h3>Memórias RAM</h3>
+                </a>
+                <a href="#" class="cartao-categoria">
+                    <img src="assets/disco.png" alt="Armazenamento">
+                    <h3>Armazenamento</h3>
+                </a>
+                <a href="#" class="cartao-categoria">
+                    <img src="assets/perifericos.png" alt="Periféricos">
+                    <h3>Periféricos</h3>
+                </a>
+                <a href="#" class="cartao-categoria">
+                    <img src="assets/outros.png" alt="Outros">
+                    <h3>Outros</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="rodape-principal">
+        <div class="conteiner">
+            <div class="secao-rodape">
+                <h4>Sobre Nós</h4>
+                <p>A MelPal Tech é um projeto educacional desenvolvido para aplicar na prática conceitos de
+                    desenvolvimento web, utilizando HTML, CSS, JavaScript e integração com Firebase. Este e-commerce
+                    especializado em periféricos e componentes para computadores foi criado por Bryan Kauan como parte
+                    de seu aprendizado acadêmico. </p>
+                <p> <br> Observação: Os links no rodapé são elementos visuais funcionanais mas não possuem redes sociais
+                    para direcionamento. (Apenas o instagram que leva para o meu.) </p>
+
+            </div>
+
+            <div class="secao-rodape">
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Dúvidas Frequentes</a></li>
+                </ul>
+            </div>
+
+            <div class="secao-rodape">
+                <h4>Atendimento</h4>
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contato@melpal.com.br</p>
+            </div>
+
+            <div class="secao-rodape">
+                <h4>Redes Sociais</h4>
+                <div class="icones-sociais">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/eobraiak/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <h4>Formas de Pagamento</h4>
+                <div class="metodos-pagamento">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-barcode"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="conteiner">
+                <p>&copy; 2025 Bryan Kauan - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
