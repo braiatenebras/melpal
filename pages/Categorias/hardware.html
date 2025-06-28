@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware - MelPal Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body>
+    <!-- Barra Superior -->
+    <div class="barra-superior">
+        <div class="conteiner">
+            <div class="acoes-usuario">
+                <a href="#"><i class="fas fa-user"></i> Minha Conta</a>
+                <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
+                <a href="#"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+            </div>
+
+            <div class="links-superiores">
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                <a href="#"><i class="fas fa-headset"></i> Atendimento</a>
+                <a href="#"><i class="fas fa-truck"></i> Frete Grátis</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho-principal">
+        <div class="conteiner">
+            <div class="logo">
+                <img src="../../assets/MelPal.png" alt="MelPal - Loja de Hardware">
+            </div>
+            <div class="barra-busca">
+                <form id="form-busca" autocomplete="off">
+                    <input type="text" id="campo-busca" placeholder="Buscar produtos...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <div id="sugestoes-busca" class="sugestoes-container"></div>
+            </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav class="navegacao-principal">
+        <div class="conteiner">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="hardware.html">Hardware</a></li>
+                <li><a href="placasdevideo.html">Placas de Vídeo</a></li>
+                <li><a href="processadores.html">Processadores</a></li>
+                <li><a href="memorias.html">Memórias</a></li>
+                <li><a href="perifericos.html">Periféricos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+   <!-- Seção de Hardware -->
+<section class="produtos-destaque">
+    <div class="conteiner">
+        <h2 class="titulo-secao">Hardware</h2>
+        <div class="grade-produtos">
+
+            <!-- Placa de Vídeo RTX 3080 Ti -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-15%</span>
+                <img src="../../assets/3080ti.png" alt="Placa de Vídeo RTX 3080 Ti">
+                <h3>Placa de Vídeo RTX 3080 Ti 12GB</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 8.999,00</span>
+                    <span class="preco-atual">R$ 7.649,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 764,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=1'">Comprar</button>
+            </div>
+
+            <!-- Processador AMD Ryzen 9 -->
+            <div class="cartao-produto">
+                <img src="../../assets/ryzen9.png" alt="Processador Ryzen 9">
+                <h3>Processador AMD Ryzen 9 5900X</h3>
+                <div class="preco">
+                    <span class="preco-atual">R$ 3.299,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 329,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=2'">Comprar</button>
+            </div>
+
+            <!-- Memória RAM DDR4 32GB -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-20%</span>
+                <img src="../../assets/ram32.png" alt="Memória RAM DDR4 32GB">
+                <h3>Memória RAM DDR4 32GB 3200MHz</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 1.299,00</span>
+                    <span class="preco-atual">R$ 1.039,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 103,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=3'">Comprar</button>
+            </div>
+
+            <!-- SSD NVMe 1TB -->
+            <div class="cartao-produto">
+                <img src="../../assets/nvme.png" alt="SSD NVMe 1TB">
+                <h3>SSD NVMe 1TB Kingston</h3>
+                <div class="preco">
+                    <span class="preco-atual">R$ 435,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 43,50 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=4'">Comprar</button>
+            </div>
+
+            <!-- Placa de Vídeo GTX 1660 Super -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-17%</span>
+                <img src="../../assets/gtx1660super.png" alt="Placa de Vídeo GTX 1660 Super">
+                <h3>Placa de Vídeo GTX 1660 Super 6GB</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 1.799,00</span>
+                    <span class="preco-atual">R$ 1.499,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 149,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=9'">Comprar</button>
+            </div>
+
+            <!-- Processador Intel Core i5 -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-4%</span>
+                <img src="../../assets/i5_12400f.png" alt="Processador Intel Core i5">
+                <h3>Processador Intel Core i5-12400F</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 1.199,00</span>
+                    <span class="preco-atual">R$ 1.149,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 114,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=10'">Comprar</button>
+            </div>
+
+            <!-- Memória RAM DDR5 16GB -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-9%</span>
+                <img src="../../assets/ddr5fury.png" alt="Memória RAM DDR5 16GB">
+                <h3>Memória RAM DDR5 16GB 5600MHz</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 649,00</span>
+                    <span class="preco-atual">R$ 589,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 58,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=11'">Comprar</button>
+            </div>
+
+            <!-- Placa de Vídeo RX 6700 XT -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-10%</span>
+                <img src="../../assets/rx6700xt.png" alt="Placa de Vídeo RX 6700 XT">
+                <h3>Placa de Vídeo RX 6700 XT 12GB</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 2.999,00</span>
+                    <span class="preco-atual">R$ 2.699,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 269,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=13'">Comprar</button>
+            </div>
+
+            <!-- Processador AMD Ryzen 7 -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-16%</span>
+                <img src="../../assets/ryzen7_5800x.png" alt="Processador AMD Ryzen 7">
+                <h3>Processador AMD Ryzen 7 5800X</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 2.199,00</span>
+                    <span class="preco-atual">R$ 1.849,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 184,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=14'">Comprar</button>
+            </div>
+
+            <!-- Memória RAM DDR4 16GB -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-11%</span>
+                <img src="../../assets/ddr4hyperx.png" alt="Memória RAM DDR4 16GB">
+                <h3>Memória RAM DDR4 16GB 3000MHz</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 359,00</span>
+                    <span class="preco-atual">R$ 319,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 31,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=15'">Comprar</button>
+            </div>
+
+            <!-- HD Seagate 2TB -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-5%</span>
+                <img src="../../assets/seagate2tb.png" alt="HD Seagate 2TB">
+                <h3>HD Seagate 2TB 7200RPM</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 399,00</span>
+                    <span class="preco-atual">R$ 379,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 37,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=16'">Comprar</button>
+            </div>
+
+            <!-- Gabinete Gamer -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-12%</span>
+                <img src="../../assets/gabinete.png" alt="Gabinete Gamer">
+                <h3>Gabinete Gamer Mid Tower RGB</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 329,00</span>
+                    <span class="preco-atual">R$ 289,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 28,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=17'">Comprar</button>
+            </div>
+
+            <!-- Fonte Corsair 650W -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-10%</span>
+                <img src="../../assets/fonte650w.png" alt="Fonte Corsair 650W">
+                <h3>Fonte Corsair 650W 80 Plus Bronze</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 479,00</span>
+                    <span class="preco-atual">R$ 429,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 42,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=18'">Comprar</button>
+            </div>
+
+            <!-- SSD Samsung 970 EVO Plus -->
+            <div class="cartao-produto">
+                <span class="etiqueta-desconto">-11%</span>
+                <img src="../../assets/970evo.png" alt="SSD Samsung 970 EVO Plus">
+                <h3>SSD Samsung 970 EVO Plus 500GB</h3>
+                <div class="preco">
+                    <span class="preco-antigo">R$ 439,00</span>
+                    <span class="preco-atual">R$ 389,00</span>
+                </div>
+                <div class="parcelamento">10x de R$ 38,90 sem juros</div>
+                <button class="botao-carrinho" onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=20'">Comprar</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Rodapé -->
+    <footer class="rodape-principal">
+        <div class="conteiner">
+            <div class="secao-rodape">
+                <h4>Sobre Nós</h4>
+                <p>A MelPal Tech é um projeto educacional desenvolvido para aplicar na prática conceitos de
+                    desenvolvimento web, utilizando HTML, CSS, JavaScript e integração com Firebase. Este e-commerce
+                    especializado em periféricos e componentes para computadores foi criado por Bryan Kauan como parte
+                    de seu aprendizado acadêmico. </p>
+                <p> <br> Observação: Os links no rodapé são elementos visuais funcionanais mas não possuem redes sociais
+                    para direcionamento. (Apenas o instagram que leva para o meu pessoal.) </p>
+            </div>
+
+            <div class="secao-rodape">
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Dúvidas Frequentes</a></li>
+                </ul>
+            </div>
+
+            <div class="secao-rodape">
+                <h4>Atendimento</h4>
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contato@melpal.com.br</p>
+            </div>
+
+            <div class="secao-rodape">
+                <h4>Redes Sociais</h4>
+                <div class="icones-sociais">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/eobraiak/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <h4>Formas de Pagamento</h4>
+                <div class="metodos-pagamento">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-barcode"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="conteiner">
+                <p>&copy; 2025 Bryan Kauan - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -76,7 +76,8 @@ a {
 
 .logo img {
     height: 60px;
-    width: 300px;
+    width: auto;
+    max-width: 200px;
 }
 
 .barra-busca {
@@ -343,7 +344,7 @@ a {
 
 .grade-categorias {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 30px;
     margin-bottom: 40px;
 }

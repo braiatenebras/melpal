@@ -323,38 +323,583 @@
           "id": 7
         }
       ]
-    }
-  ],
-  "categorias": [
-    {
-      "id": 1,
-      "nome": "Placas de Vídeo",
-      "imagem": "../../assets/gpu.png"
     },
     {
-      "id": 2,
-      "nome": "Processadores",
-      "imagem": "../../assets/cpu.png"
+      "id": 9,
+      "nome": "Placa de Vídeo GTX 1660 Super 6GB",
+      "categoria": "Placas de Vídeo",
+      "imagem": "../../assets/gtx1660super.png",
+      "preco": 1499.00,
+      "precoOriginal": 1799.00,
+      "desconto": 17,
+      "parcelamento": "10x de R$ 149,90 sem juros",
+      "avaliacao": 4.6,
+      "avaliacoes": 820,
+      "vendidos": 750,
+      "descricao": "A Placa de Vídeo GTX 1660 Super oferece desempenho excepcional para jogos em Full HD (1080p) com sua arquitetura Turing e 6GB de memória GDDR6. Ideal para quem busca performance de qualidade em jogos atuais sem investir em hardware topo de linha.",
+      "beneficios": [
+        "Arquitetura Turing da NVIDIA para melhor desempenho",
+        "6GB de memória GDDR6 de alta velocidade",
+        "Desempenho fluido em jogos em 1080p",
+        "Compatível com DirectX 12 e tecnologias modernas",
+        "Sistema de refrigeração eficiente com ventoinha dupla"
+      ],
+      "especificacoes": {
+        "marca": "NVIDIA",
+        "modelo": "GTX 1660 Super",
+        "memoria": "6GB GDDR6",
+        "barramento": "192-bit",
+        "clock": "1530 MHz (Boost: 1785 MHz)",
+        "saidas": "1x HDMI 2.0b, 1x DisplayPort 1.4, 1x DVI-D",
+        "consumo": "125W",
+        "conexao": "PCIe 3.0 x16"
+      },
+      "estoque": 20,
+      "destaque": false,
+      "relacionados": [
+        {
+          "id": 1
+        },
+        {
+          "id": 3
+        }
+      ]
     },
     {
-      "id": 3,
-      "nome": "Memórias RAM",
-      "imagem": "../../assets/ram.png"
+      "id": 10,
+      "nome": "Processador Intel Core i5-12400F",
+      "categoria": "Processadores",
+      "imagem": "../../assets/i5_12400f.png",
+      "preco": 1149.00,
+      "precoOriginal": 1199.00,
+      "desconto": 4,
+      "parcelamento": "10x de R$ 114,90 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 610,
+      "vendidos": 521,
+      "descricao": "O processador Intel Core i5-12400F oferece 6 núcleos e 12 threads com arquitetura Alder Lake, proporcionando excelente desempenho para jogos e aplicações do dia a dia. Sem gráfico integrado para melhor custo-benefício.",
+      "beneficios": [
+        "6 núcleos e 12 threads para multitarefa eficiente",
+        "Arquitetura Alder Lake de 12ª geração",
+        "Clock base de 2.5GHz e boost até 4.4GHz",
+        "Cache Intel Smart Cache de 18MB",
+        "Compatível com placas-mãe LGA1700 e DDR4/DDR5"
+      ],
+      "especificacoes": {
+        "marca": "Intel",
+        "modelo": "Core i5-12400F",
+        "nucleos": 6,
+        "threads": 12,
+        "clock": "2.5GHz (Boost: 4.4GHz)",
+        "cache": "18MB Smart Cache",
+        "tdp": "65W",
+        "socket": "LGA1700",
+        "tecnologia": "10nm SuperFin"
+      },
+      "estoque": 18,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 2
+        },
+        {
+          "id": 4
+        }
+      ]
     },
     {
-      "id": 4,
-      "nome": "Armazenamento",
-      "imagem": "../../assets/disco.png"
+      "id": 11,
+      "nome": "Memória RAM DDR5 16GB 5600MHz Fury Beast",
+      "categoria": "Memórias RAM",
+      "imagem": "../../assets/ddr5fury.png",
+      "preco": 589.00,
+      "precoOriginal": 649.00,
+      "desconto": 9,
+      "parcelamento": "10x de R$ 58,90 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 388,
+      "vendidos": 322,
+      "descricao": "Memória RAM DDR5 Kingston Fury Beast 16GB (1x16GB) 5600MHz com dissipador de calor e design agressivo. Tecnologia Plug N Play para compatibilidade imediata e perfis XMP para overclock fácil.",
+      "beneficios": [
+        "16GB de capacidade DDR5 (1 módulo)",
+        "Alta frequência de 5600MHz para máximo desempenho",
+        "Dissipador de calor em alumínio com design Beast",
+        "Latência CL36 para resposta rápida",
+        "Compatível com Intel XMP 3.0 para overclock fácil"
+      ],
+      "especificacoes": {
+        "marca": "Kingston",
+        "modelo": "Fury Beast DDR5",
+        "capacidade": "16GB (1x16GB)",
+        "tipo": "DDR5",
+        "frequencia": "5600MHz",
+        "latencia": "CL36",
+        "voltagem": "1.25V",
+        "perfil": "XMP 3.0"
+      },
+      "estoque": 14,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 3
+        },
+        {
+          "id": 4
+        }
+      ]
     },
     {
-      "id": 5,
-      "nome": "Periféricos",
-      "imagem": "../../assets/perifericos.png"
+      "id": 12,
+      "nome": "Mouse Gamer Logitech G203 RGB",
+      "categoria": "Periféricos",
+      "imagem": "../../assets/mouseg203.png",
+      "preco": 139.00,
+      "precoOriginal": 169.00,
+      "desconto": 18,
+      "parcelamento": "10x de R$ 13,90 sem juros",
+      "avaliacao": 4.9,
+      "avaliacoes": 1420,
+      "vendidos": 1120,
+      "descricao": "Mouse gamer Logitech G203 com sensor de 8000 DPI, iluminação RGB LIGHTSYNC e design ergonômico. Resposta rápida e precisão para jogos competitivos.",
+      "beneficios": [
+        "Sensor óptico de 8000 DPI para precisão extrema",
+        "Iluminação RGB LIGHTSYNC personalizável",
+        "Design ergonômico para conforto em longas sessões",
+        "6 botões programáveis com resposta rápida",
+        "Cabo flexível e durável"
+      ],
+      "especificacoes": {
+        "marca": "Logitech",
+        "modelo": "G203 Lightsync",
+        "sensor": "Óptico",
+        "dpi": "200-8000 ajustável",
+        "polling": "1000Hz (1ms)",
+        "botões": 6,
+        "iluminacao": "RGB LIGHTSYNC",
+        "peso": "85g",
+        "conexao": "USB 2.0"
+      },
+      "estoque": 34,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        }
+      ]
     },
     {
-      "id": 6,
-      "nome": "Outros",
-      "imagem": "../../assets/outros.png"
+      "id": 13,
+      "nome": "Placa de Vídeo Radeon RX 6700 XT 12GB",
+      "categoria": "Placas de Vídeo",
+      "imagem": "../../assets/rx6700xt.png",
+      "preco": 2699.00,
+      "precoOriginal": 2999.00,
+      "desconto": 10,
+      "parcelamento": "10x de R$ 269,90 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 542,
+      "vendidos": 498,
+      "descricao": "Placa de vídeo AMD Radeon RX 6700 XT com 12GB GDDR6 e arquitetura RDNA 2. Desempenho excepcional em 1440p com suporte a ray tracing e tecnologias AMD Smart Access Memory.",
+      "beneficios": [
+        "12GB de memória GDDR6 para jogos em alta resolução",
+        "Arquitetura RDNA 2 com ray tracing",
+        "Tecnologia AMD Infinity Cache para baixa latência",
+        "Cooler triplo com dissipação eficiente",
+        "Compatível com DirectX 12 Ultimate"
+      ],
+      "especificacoes": {
+        "marca": "AMD",
+        "modelo": "RX 6700 XT",
+        "memoria": "12GB GDDR6",
+        "barramento": "192-bit",
+        "clock": "2424 MHz (Game: 2581 MHz)",
+        "saidas": "1x HDMI 2.1, 3x DisplayPort 1.4",
+        "consumo": "230W",
+        "conexao": "PCIe 4.0"
+      },
+      "estoque": 17,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 1
+        },
+        {
+          "id": 9
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "nome": "Processador AMD Ryzen 7 5800X",
+      "categoria": "Processadores",
+      "imagem": "../../assets/ryzen7_5800x.png",
+      "preco": 1849.00,
+      "precoOriginal": 2199.00,
+      "desconto": 16,
+      "parcelamento": "10x de R$ 184,90 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 801,
+      "vendidos": 720,
+      "descricao": "Processador AMD Ryzen 7 5800X com 8 núcleos e 16 threads, arquitetura Zen 3 e clock boost de até 4.7GHz. Performance excepcional para jogos e produtividade.",
+      "beneficios": [
+        "8 núcleos e 16 threads para multitarefa pesada",
+        "Arquitetura Zen 3 com melhor IPC",
+        "Clock base de 3.8GHz e boost até 4.7GHz",
+        "Cache L3 de 32MB para melhor desempenho",
+        "Compatível com placas-mãe AM4"
+      ],
+      "especificacoes": {
+        "marca": "AMD",
+        "modelo": "Ryzen 7 5800X",
+        "nucleos": 8,
+        "threads": 16,
+        "clock": "3.8GHz (Boost: 4.7GHz)",
+        "cache": "32MB L3",
+        "tdp": "105W",
+        "socket": "AM4",
+        "tecnologia": "7nm"
+      },
+      "estoque": 21,
+      "destaque": false,
+      "relacionados": [
+        {
+          "id": 2
+        },
+        {
+          "id": 10
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "nome": "Memória RAM DDR4 16GB 3000MHz HyperX",
+      "categoria": "Memórias RAM",
+      "imagem": "../../assets/ddr4hyperx.png",
+      "preco": 319.00,
+      "precoOriginal": 359.00,
+      "desconto": 11,
+      "parcelamento": "10x de R$ 31,90 sem juros",
+      "avaliacao": 4.6,
+      "avaliacoes": 450,
+      "vendidos": 390,
+      "descricao": "Memória RAM HyperX Fury DDR4 16GB (1x16GB) 3000MHz com dissipador de baixo perfil e design elegante. Compatível com as principais plataformas Intel e AMD.",
+      "beneficios": [
+        "16GB de capacidade DDR4 (1 módulo)",
+        "Frequência de 3000MHz para bom desempenho",
+        "Dissipador de calor em alumínio de baixo perfil",
+        "Latência CL15 para resposta rápida",
+        "Compatível com Intel XMP para configuração fácil"
+      ],
+      "especificacoes": {
+        "marca": "HyperX",
+        "modelo": "Fury DDR4",
+        "capacidade": "16GB (1x16GB)",
+        "tipo": "DDR4",
+        "frequencia": "3000MHz",
+        "latencia": "CL15",
+        "voltagem": "1.35V",
+        "perfil": "XMP"
+      },
+      "estoque": 24,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 3
+        },
+        {
+          "id": 11
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "nome": "HD Seagate 2TB 7200RPM",
+      "categoria": "Armazenamento",
+      "imagem": "../../assets/seagate2tb.png",
+      "preco": 379.00,
+      "precoOriginal": 399.00,
+      "desconto": 5,
+      "parcelamento": "10x de R$ 37,90 sem juros",
+      "avaliacao": 4.5,
+      "avaliacoes": 654,
+      "vendidos": 590,
+      "descricao": "HD Seagate Barracuda 2TB 7200RPM com cache de 256MB para armazenamento confiável e de alta capacidade. Ideal para guardar seus jogos, arquivos e mídias.",
+      "beneficios": [
+        "2TB de capacidade para armazenamento amplo",
+        "Velocidade de 7200RPM para desempenho rápido",
+        "Cache de 256MB para melhor fluidez",
+        "Tecnologia Multi-Tier Caching",
+        "Compatível com computadores desktop"
+      ],
+      "especificacoes": {
+        "marca": "Seagate",
+        "modelo": "Barracuda",
+        "capacidade": "2TB",
+        "velocidade": "7200RPM",
+        "cache": "256MB",
+        "interface": "SATA 6Gb/s",
+        "formato": "3.5 polegadas",
+        "garantia": "2 anos"
+      },
+      "estoque": 29,
+      "destaque": false,
+      "relacionados": [
+        {
+          "id": 4
+        },
+        {
+          "id": 11
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "nome": "Gabinete Gamer Mid Tower RGB",
+      "categoria": "Periféricos",
+      "imagem": "../../assets/gabinete.png",
+      "preco": 289.00,
+      "precoOriginal": 329.00,
+      "desconto": 12,
+      "parcelamento": "10x de R$ 28,90 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 430,
+      "vendidos": 389,
+      "descricao": "Gabinete Gamer Aerocool Cylon RGB Mid Tower com painel lateral em vidro temperado, ventoinha RGB frontal e excelente fluxo de ar. Design moderno e espaço para montagens potentes.",
+      "beneficios": [
+        "Painel lateral em vidro temperado para exibir seu hardware",
+        "Ventoinha RGB frontal de 120mm incluída",
+        "Design Mid Tower com espaço para placas-mãe ATX",
+        "Gerenciamento de cabos eficiente",
+        "Suporte para water coolers de até 240mm"
+      ],
+      "especificacoes": {
+        "marca": "Aerocool",
+        "modelo": "Cylon RGB",
+        "formato": "Mid Tower",
+        "material": "Aço SPCC + Vidro temperado",
+        "ventoinhas": "1x 120mm RGB frontal",
+        "suporteCooler": "Até 240mm",
+        "slotsExpansao": 7,
+        "baias": "2x 3.5\", 2x 2.5\""
+      },
+      "estoque": 16,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 5
+        },
+        {
+          "id": 12
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "nome": "Fonte Corsair 650W 80 Plus Bronze",
+      "categoria": "Periféricos",
+      "imagem": "../../assets/fonte650w.png",
+      "preco": 429.00,
+      "precoOriginal": 479.00,
+      "desconto": 10,
+      "parcelamento": "10x de R$ 42,90 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 612,
+      "vendidos": 530,
+      "descricao": "Fonte de alimentação Corsair CX650 650W 80 Plus Bronze com cabos semi-modulares e proteções avançadas. Fornece energia estável e confiável para seu sistema.",
+      "beneficios": [
+        "Certificação 80 Plus Bronze para eficiência energética",
+        "Cabos semi-modulares para melhor organização",
+        "Ventoinha de 120mm com baixo ruído",
+        "Proteções contra sobretensão, sobrecarga e curto-circuito",
+        "Compatível com as últimas placas de vídeo"
+      ],
+      "especificacoes": {
+        "marca": "Corsair",
+        "modelo": "CX650",
+        "potencia": "650W",
+        "certificacao": "80 Plus Bronze",
+        "modular": "Semi-modular",
+        "ventoinha": "120mm",
+        "protecoes": "OVP, OPP, SCP, UVP",
+        "conectores": "1x ATX 24-pin, 1x EPS 4+4-pin, 2x PCIe 6+2-pin"
+      },
+      "estoque": 23,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 17
+        },
+        {
+          "id": 5
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "nome": "Cooler CPU Cooler Master Hyper 212",
+      "categoria": "Periféricos",
+      "imagem": "../../assets/hyper212.png",
+      "preco": 199.00,
+      "precoOriginal": 229.00,
+      "desconto": 13,
+      "parcelamento": "10x de R$ 19,90 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 774,
+      "vendidos": 688,
+      "descricao": "Cooler para CPU Cooler Master Hyper 212 Black Edition com 4 heatpipes e ventoinha de 120mm. Solução eficiente e silenciosa para manter seu processador resfriado.",
+      "beneficios": [
+        "4 heatpipes de cobre para melhor dissipação",
+        "Ventoinha de 120mm com baixo ruído (8-26 dBA)",
+        "Compatível com Intel e AMD (incluindo AM4 e LGA1700)",
+        "Design todo preto para estética premium",
+        "Fácil instalação com suporte universal"
+      ],
+      "especificacoes": {
+        "marca": "Cooler Master",
+        "modelo": "Hyper 212 Black Edition",
+        "tipo": "Air Cooler",
+        "heatpipes": 4,
+        "ventoinha": "120mm (650-2000 RPM)",
+        "ruido": "8-26 dBA",
+        "socket": "Intel: LGA1700/1200/115x, AMD: AM4/AM3+/AM3/AM2+/FM2+/FM1"
+      },
+      "estoque": 14,
+      "destaque": false,
+      "relacionados": [
+        {
+          "id": 10
+        },
+        {
+          "id": 14
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "nome": "SSD Samsung 970 EVO Plus 500GB",
+      "categoria": "Armazenamento",
+      "imagem": "../../assets/970evo.png",
+      "preco": 389.00,
+      "precoOriginal": 439.00,
+      "desconto": 11,
+      "parcelamento": "10x de R$ 38,90 sem juros",
+      "avaliacao": 4.9,
+      "avaliacoes": 932,
+      "vendidos": 870,
+      "descricao": "SSD NVMe Samsung 970 EVO Plus 500GB com tecnologia V-NAND e velocidades de até 3500MB/s. Desempenho profissional para gamers e criadores de conteúdo.",
+      "beneficios": [
+        "500GB de armazenamento NVMe de alta velocidade",
+        "Leitura sequencial de até 3500MB/s",
+        "Gravação sequencial de até 3200MB/s",
+        "Tecnologia V-NAND da Samsung para confiabilidade",
+        "Garantia limitada de 5 anos"
+      ],
+      "especificacoes": {
+        "marca": "Samsung",
+        "modelo": "970 EVO Plus",
+        "capacidade": "500GB",
+        "interface": "NVMe PCIe Gen3 x4",
+        "leitura": "3500MB/s",
+        "gravacao": "3200MB/s",
+        "endurance": "300TBW",
+        "garantia": "5 anos"
+      },
+      "estoque": 20,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 4
+        },
+        {
+          "id": 16
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "nome": "Webcam Logitech C920 Full HD",
+      "categoria": "Periféricos",
+      "imagem": "../../assets/webcamc920.png",
+      "preco": 379.00,
+      "precoOriginal": 429.00,
+      "desconto": 12,
+      "parcelamento": "10x de R$ 37,90 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 1045,
+      "vendidos": 990,
+      "descricao": "Webcam Logitech C920 Full HD com vídeo em 1080p e microfones estéreo integrados. Ideal para reuniões, streaming e chamadas de vídeo com qualidade profissional.",
+      "beneficios": [
+        "Gravação Full HD 1080p a 30fps",
+        "Microfones estéreo com redução de ruído",
+        "Foco automático para imagens nítidas",
+        "Compatível com Windows, Mac e Chrome OS",
+        "Montagem universal para notebooks e monitores"
+      ],
+      "especificacoes": {
+        "marca": "Logitech",
+        "modelo": "C920",
+        "resolucao": "1920x1080 (Full HD)",
+        "fps": "30fps (1080p), 30/60fps (720p)",
+        "microfone": "Estéreo com redução de ruído",
+        "foco": "Automático",
+        "conexao": "USB 2.0",
+        "compatibilidade": "Windows 7+, macOS 10.10+, Chrome OS"
+      },
+      "estoque": 19,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 12
+        },
+        {
+          "id": 8
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "nome": "Notebook Gamer Acer Nitro 5 i5 GTX 1650",
+      "categoria": "Computadores",
+      "imagem": "../../assets/nitro5.png",
+      "preco": 3699.00,
+      "precoOriginal": 4199.00,
+      "desconto": 12,
+      "parcelamento": "10x de R$ 369,90 sem juros",
+      "avaliacao": 4.6,
+      "avaliacoes": 312,
+      "vendidos": 250,
+      "descricao": "Notebook Gamer Acer Nitro 5 com processador Intel Core i5-10300H, placa de vídeo GTX 1650 e tela de 144Hz. Performance equilibrada para jogos e produtividade em um design portátil.",
+      "beneficios": [
+        "Processador Intel Core i5-10300H (10ª geração)",
+        "Placa de vídeo NVIDIA GTX 1650 com 4GB GDDR6",
+        "Tela IPS de 15.6\" Full HD com 144Hz",
+        "8GB DDR4 e SSD 512GB para desempenho rápido",
+        "Teclado retroiluminado com layout gamer"
+      ],
+      "especificacoes": {
+        "marca": "Acer",
+        "modelo": "Nitro 5 AN515-55-59KS",
+        "processador": "Intel Core i5-10300H (2.5GHz, Turbo 4.5GHz)",
+        "placaVideo": "NVIDIA GTX 1650 4GB GDDR6",
+        "memoria": "8GB DDR4 (expansível até 32GB)",
+        "armazenamento": "512GB SSD NVMe",
+        "tela": "15.6\" IPS Full HD (1920x1080) 144Hz",
+        "sistema": "Windows 11 Home",
+        "bateria": "4 células (até 8h)"
+      },
+      "estoque": 9,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 1
+        },
+        {
+          "id": 9
+        }
+      ]
     }
   ]
 }
