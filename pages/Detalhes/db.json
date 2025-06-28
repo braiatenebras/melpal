@@ -1,0 +1,360 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Placa de Vídeo RTX 3080 Ti 12GB",
+      "categoria": "Placas de Vídeo",
+      "imagem": "../../assets/3080ti.png",
+      "preco": 7649.00,
+      "precoOriginal": 8999.00,
+      "desconto": 15,
+      "parcelamento": "10x de R$ 764,90 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 842,
+      "vendidos": 685,
+      "descricao": "A Placa de Vídeo RTX 3080 Ti oferece desempenho excepcional para jogos em 4K e criação de conteúdo. Com 12GB de memória GDDR6X e arquitetura Ampere da NVIDIA, proporciona ray tracing e DLSS para gráficos ultra-realistas.",
+      "beneficios": [
+        "12GB de memória GDDR6X para alto desempenho",
+        "Arquitetura Ampere da NVIDIA",
+        "Ray Tracing e DLSS para gráficos realistas",
+        "Resfriamento avançado com três ventoinhas",
+        "Compatível com PCIe 4.0"
+      ],
+      "especificacoes": {
+        "marca": "NVIDIA",
+        "modelo": "RTX 3080 Ti",
+        "memoria": "12GB GDDR6X",
+        "barramento": "384-bit",
+        "clock": "1365 MHz (Boost: 1665 MHz)",
+        "saidas": "3x DisplayPort, 1x HDMI"
+      },
+      "estoque": 15,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 2
+        },
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nome": "Processador AMD Ryzen 9 5900X",
+      "categoria": "Processadores",
+      "imagem": "../../assets/ryzen9.png",
+      "preco": 3299.00,
+      "precoOriginal": 3299.00,
+      "desconto": 0,
+      "parcelamento": "10x de R$ 329,90 sem juros",
+      "avaliacao": 4.9,
+      "avaliacoes": 1203,
+      "vendidos": 927,
+      "descricao": "O processador AMD Ryzen 9 5900X oferece 12 núcleos e 24 threads para desempenho excepcional em jogos e produtividade. Com arquitetura Zen 3 e clock boost de até 4.8GHz, é ideal para quem busca alto desempenho.",
+      "beneficios": [
+        "12 núcleos e 24 threads",
+        "Clock base de 3.7GHz e boost até 4.8GHz",
+        "Arquitetura Zen 3 para maior eficiência",
+        "Cache L3 de 64MB",
+        "Compatível com placas-mãe AM4"
+      ],
+      "especificacoes": {
+        "marca": "AMD",
+        "modelo": "Ryzen 9 5900X",
+        "nucleos": 12,
+        "threads": 24,
+        "clock": "3.7GHz (Boost: 4.8GHz)",
+        "cache": "64MB L3",
+        "tdp": "105W",
+        "socket": "AM4"
+      },
+      "estoque": 22,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 1
+        },
+        {
+          "id": 3
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nome": "Memória RAM DDR4 32GB 3200MHz",
+      "categoria": "Memórias RAM",
+      "imagem": "../../assets/ram32.png",
+      "preco": 1039.00,
+      "precoOriginal": 1299.00,
+      "desconto": 20,
+      "parcelamento": "10x de R$ 103,90 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 689,
+      "vendidos": 564,
+      "descricao": "Kit de memória RAM DDR4 32GB (2x16GB) com frequência de 3200MHz e latência CL16. Ideal para quem busca alto desempenho em jogos, edição de vídeo e outras aplicações exigentes.",
+      "beneficios": [
+        "32GB (2x16GB) de capacidade",
+        "Frequência de 3200MHz",
+        "Latência CL16",
+        "Dissipador de calor em alumínio",
+        "Compatível com Intel XMP 2.0"
+      ],
+      "especificacoes": {
+        "marca": "Corsair",
+        "modelo": "Vengeance LPX",
+        "capacidade": "32GB (2x16GB)",
+        "tipo": "DDR4",
+        "frequencia": "3200MHz",
+        "latencia": "CL16",
+        "voltagem": "1.35V"
+      },
+      "estoque": 18,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "nome": "SSD NVMe 1TB Kingston",
+      "categoria": "Armazenamento",
+      "imagem": "../../assets/nvme.png",
+      "preco": 435.00,
+      "precoOriginal": 435.00,
+      "desconto": 0,
+      "parcelamento": "10x de R$ 43,50 sem juros",
+      "avaliacao": 4.6,
+      "avaliacoes": 956,
+      "vendidos": 1210,
+      "descricao": "SSD NVMe Kingston de 1TB com velocidades de leitura de até 3500MB/s e gravação de 2100MB/s. Oferece desempenho excepcional para boot rápido, carregamento de jogos e transferência de arquivos.",
+      "beneficios": [
+        "1TB de capacidade NVMe",
+        "Leitura: 3500MB/s, Gravação: 2100MB/s",
+        "Tecnologia 3D NAND",
+        "Baixo consumo de energia",
+        "Compatível com PCIe Gen 3.0 x4"
+      ],
+      "especificacoes": {
+        "marca": "Kingston",
+        "modelo": "NV1",
+        "capacidade": "1TB",
+        "interface": "PCIe NVMe Gen 3.0 x4",
+        "leitura": "3500MB/s",
+        "gravacao": "2100MB/s",
+        "endurance": "240TBW",
+        "garantia": "3 anos"
+      },
+      "estoque": 35,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 1
+        },
+        {
+          "id": 2
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "nome": "Monitor Gamer AOC Hero 27 Full HD 144hz",
+      "categoria": "Periféricos",
+      "imagem": "../../assets/monitor.png",
+      "preco": 759.00,
+      "precoOriginal": 759.00,
+      "desconto": 0,
+      "parcelamento": "10x de R$ 75,90 sem juros",
+      "avaliacao": 4.5,
+      "avaliacoes": 578,
+      "vendidos": 692,
+      "descricao": "Monitor gamer AOC Hero 27 polegadas com resolução Full HD (1920x1080), taxa de atualização de 144Hz e tempo de resposta de 1ms. Ideal para jogos competitivos com fluidez e sem ghosting.",
+      "beneficios": [
+        "Tela de 27 polegadas Full HD",
+        "Taxa de atualização de 144Hz",
+        "Tempo de resposta de 1ms",
+        "Tecnologia FreeSync",
+        "Design ergonômico com ajuste de altura"
+      ],
+      "especificacoes": {
+        "marca": "AOC",
+        "modelo": "27G2",
+        "tamanho": "27 polegadas",
+        "resolucao": "1920x1080 (Full HD)",
+        "taxaAtualizacao": "144Hz",
+        "tempoResposta": "1ms",
+        "painel": "IPS",
+        "conexoes": "HDMI, DisplayPort, VGA"
+      },
+      "estoque": 12,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nome": "Controle Sony DualSense PS5",
+      "categoria": "Periféricos",
+      "imagem": "../../assets/controle.png",
+      "preco": 380.00,
+      "precoOriginal": 450.00,
+      "desconto": 20,
+      "parcelamento": "10x de R$ 38,00 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 1331,
+      "vendidos": 1185,
+      "descricao": "Controle sem fio DualSense para PlayStation 5 com feedback háptico avançado, gatilhos adaptáveis e microfone integrado. Oferece uma experiência de jogo imersiva e confortável.",
+      "beneficios": [
+        "Feedback háptico avançado",
+        "Gatilhos adaptáveis",
+        "Microfone integrado",
+        "Bateria recarregável",
+        "Compatível com PC e PS5"
+      ],
+      "especificacoes": {
+        "marca": "Sony",
+        "modelo": "DualSense",
+        "conexao": "Bluetooth/USB-C",
+        "bateria": "Recarregável (até 12h)",
+        "compatibilidade": "PS5, PC",
+        "peso": "280g",
+        "sensores": "Acelerômetro, giroscópio"
+      },
+      "estoque": 28,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 5
+        },
+        {
+          "id": 7
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "nome": "Redragon Teclado Mecanico Gamer Fizz",
+      "categoria": "Periféricos",
+      "imagem": "../../assets/teclado.png",
+      "preco": 170.00,
+      "precoOriginal": 170.00,
+      "desconto": 0,
+      "parcelamento": "10x de R$ 17,00 sem juros",
+      "avaliacao": 4.4,
+      "avaliacoes": 812,
+      "vendidos": 943,
+      "descricao": "Teclado mecânico gamer Redragon Fizz com switches Outemu Blue, retroiluminação RGB e design compacto. Ideal para jogos e digitação com resposta tátil e sonora satisfatória.",
+      "beneficios": [
+        "Switches Outemu Blue (clicky)",
+        "Retroiluminação RGB personalizável",
+        "Design compacto 60%",
+        "Cabo removível USB-C",
+        "Construção durável em ABS"
+      ],
+      "especificacoes": {
+        "marca": "Redragon",
+        "modelo": "Fizz",
+        "tipo": "Mecânico",
+        "switch": "Outemu Blue",
+        "iluminacao": "RGB",
+        "tamanho": "60%",
+        "conexao": "USB-C",
+        "teclas": "61"
+      },
+      "estoque": 40,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 6
+        },
+        {
+          "id": 8
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "nome": "Headset Fone de Ouvido Havit HV-H2002d",
+      "categoria": "Periféricos",
+      "imagem": "../../assets/headset.png",
+      "preco": 159.00,
+      "precoOriginal": 159.00,
+      "desconto": 0,
+      "parcelamento": "10x de R$ 15,90 sem juros",
+      "avaliacao": 4.3,
+      "avaliacoes": 567,
+      "vendidos": 689,
+      "descricao": "Headset gamer Havit HV-H2002d com drivers de 50mm, microfone omnidirecional flexível e iluminação RGB. Confortável para longas sessões de jogo com áudio imersivo.",
+      "beneficios": [
+        "Drivers de 50mm para áudio potente",
+        "Microfone omnidirecional flexível",
+        "Iluminação RGB",
+        "Almofadas em couro sintético",
+        "Compatível com PC, PS4, Xbox e mobile"
+      ],
+      "especificacoes": {
+        "marca": "Havit",
+        "modelo": "HV-H2002d",
+        "tipo": "Headset gamer",
+        "driver": "50mm",
+        "frequencia": "20Hz-20kHz",
+        "impedancia": "32Ω",
+        "microfone": "Omnidirecional",
+        "conexao": "USB e 3.5mm"
+      },
+      "estoque": 25,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        }
+      ]
+    }
+  ],
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Placas de Vídeo",
+      "imagem": "../../assets/gpu.png"
+    },
+    {
+      "id": 2,
+      "nome": "Processadores",
+      "imagem": "../../assets/cpu.png"
+    },
+    {
+      "id": 3,
+      "nome": "Memórias RAM",
+      "imagem": "../../assets/ram.png"
+    },
+    {
+      "id": 4,
+      "nome": "Armazenamento",
+      "imagem": "../../assets/disco.png"
+    },
+    {
+      "id": 5,
+      "nome": "Periféricos",
+      "imagem": "../../assets/perifericos.png"
+    },
+    {
+      "id": 6,
+      "nome": "Outros",
+      "imagem": "../../assets/outros.png"
+    }
+  ]
+}
