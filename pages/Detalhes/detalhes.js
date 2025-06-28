@@ -213,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.sugestao-item').forEach(item => {
                 item.addEventListener('click', function () {
                     const id = this.getAttribute('data-id');
-                    window.location.href = `pages/Detalhes/detalhes.html?id=${id}`;
+                    window.location.href = `detalhes.html?id=${id}`;
                 });
             });
         } else {
