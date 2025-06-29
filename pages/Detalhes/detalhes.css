@@ -234,6 +234,8 @@ a {
     width: 500px;
     max-height: 500px;
     object-fit: contain;
+    mix-blend-mode: multiply;
+
 }
 
 .info-produto {

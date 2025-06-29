@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const produto = data.produtos.find(p => p.id == produtoId);
 
             if (!produto) {
-                window.location.href = 'loja.html';
+                window.location.href = '../../index.html';
                 return;
             }
 

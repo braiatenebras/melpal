@@ -900,6 +900,204 @@
           "id": 9
         }
       ]
+    },
+    {
+      "id": 23,
+      "nome": "Teclado Mecânico Razer BlackWidow V3",
+      "categoria": "Periféricos",
+      "imagem": "https://img.terabyteshop.com.br/archive/3001189308/html%201.jpg",
+      "preco": 599.00,
+      "precoOriginal": 649.00,
+      "desconto": 8,
+      "parcelamento": "10x de R$ 59,90 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 450,
+      "vendidos": 320,
+      "descricao": "Teclado mecânico Razer BlackWidow V3 com switches mecânicos Razer Green, retroiluminação RGB e design ergonômico. Ideal para gamers que buscam desempenho e conforto.",
+      "beneficios": [
+        "Switches mecânicos Razer Green para resposta tátil",
+        "Retroiluminação RGB personalizável",
+        "Construção durável com estrutura em alumínio",
+        "Descanso de pulso ergonômico",
+        "Teclas programáveis"
+      ],
+      "especificacoes": {
+        "marca": "Razer",
+        "modelo": "BlackWidow V3",
+        "tipo": "Mecânico",
+        "switch": "Razer Green",
+        "iluminacao": "RGB",
+        "conexao": "USB",
+        "peso": "1.2kg"
+      },
+      "estoque": 15,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "nome": "Fone de Ouvido Sem Fio JBL Tune 500BT",
+      "categoria": "Periféricos",
+      "imagem": "https://www.jbl.com.br/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dwe2288d39/JBL_TUNE500BT_Product-Image_Front_Blue-1605x1605px.png?sw=535&sh=535",
+      "preco": 299.00,
+      "precoOriginal": 349.00,
+      "desconto": 14,
+      "parcelamento": "10x de R$ 29,90 sem juros",
+      "avaliacao": 4.5,
+      "avaliacoes": 600,
+      "vendidos": 450,
+      "descricao": "Fone de ouvido sem fio JBL Tune 500BT com som potente e bateria de longa duração. Confortável e ideal para ouvir música durante todo o dia.",
+      "beneficios": [
+        "Conexão Bluetooth para liberdade sem fio",
+        "Bateria com até 16 horas de reprodução",
+        "Drivers de 32mm para som potente",
+        "Design leve e confortável",
+        "Controles integrados para chamadas e música"
+      ],
+      "especificacoes": {
+        "marca": "JBL",
+        "modelo": "Tune 500BT",
+        "tipo": "Sem fio",
+        "bateria": "Até 16 horas",
+        "conexao": "Bluetooth",
+        "peso": "220g"
+      },
+      "estoque": 25,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "nome": "Cadeira Gamer DXRacer Formula Series",
+      "categoria": "Periféricos",
+      "imagem": "https://nex-img.dxracer.cc/20004/6095e652-bc92-495c-825c-222b3f73764f-12.png?imageView2/2/w/820/format/webp/interlace/1",
+      "preco": 1399.00,
+      "precoOriginal": 1599.00,
+      "desconto": 12,
+      "parcelamento": "10x de R$ 139,90 sem juros",
+      "avaliacao": 4.9,
+      "avaliacoes": 300,
+      "vendidos": 200,
+      "descricao": "Cadeira gamer DXRacer Formula Series com design ergonômico, apoio para braços ajustável e suporte lombar. Ideal para longas sessões de jogo.",
+      "beneficios": [
+        "Design ergonômico para conforto",
+        "Apoio para braços ajustável",
+        "Suporte lombar incluído",
+        "Assento e encosto em courino premium",
+        "Estrutura resistente em aço"
+      ],
+      "especificacoes": {
+        "marca": "DXRacer",
+        "modelo": "Formula Series",
+        "material": "Courino premium",
+        "altura": "Ajustável",
+        "pesoMaximo": "120kg",
+        "garantia": "2 anos"
+      },
+      "estoque": 10,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 6
+        },
+        {
+          "id": 7
+        },
+        {
+          "id": 26,
+          "nome": "Placa-Mãe B550M Aorus Elite",
+          "categoria": "Hardware",
+          "imagem": "https://images.kabum.com.br/produtos/fotos/114781/placa-mae-gigabyte-b550m-aorus-elite-amd-am4-micro-atx-ddr4_1594908595_gg.jpg",
+          "preco": 899.00,
+          "precoOriginal": 999.00,
+          "desconto": 10,
+          "parcelamento": "10x de R$ 89,90 sem juros",
+          "avaliacao": 4.8,
+          "avaliacoes": 420,
+          "vendidos": 380,
+          "descricao": "Placa-mãe Gigabyte B550M Aorus Elite para AMD AM4 com suporte a PCIe 4.0, VRMs robustos e conexões avançadas. Ideal para montagens gamers e de alto desempenho.",
+          "beneficios": [
+            "Suporte a processadores AMD Ryzen (AM4)",
+            "Chipset B550 com PCIe 4.0",
+            "VRMs robustos para overclock",
+            "2 slots M.2 para SSDs ultrarrápidos",
+            "Áudio ALC1200 de alta qualidade"
+          ],
+          "especificacoes": {
+            "marca": "Gigabyte",
+            "modelo": "B550M Aorus Elite",
+            "socket": "AM4",
+            "chipset": "B550",
+            "memoria": "4x DDR4 (até 4400MHz)",
+            "slots": "1x PCIe 4.0 x16",
+            "conexoes": "6x SATA, 2x M.2",
+            "formato": "Micro ATX"
+          },
+          "estoque": 18,
+          "destaque": true,
+          "relacionados": [
+            {
+              "id": 2
+            },
+            {
+              "id": 14
+            }
+          ]
+        },
+        {
+          "id": 27,
+          "nome": "Mousepad Gamer HyperX Fury S",
+          "categoria": "Periféricos",
+          "imagem": "https://a-static.mlcdn.com.br/1500x1500/mousepad-gamer-hyperx-fury-s-speed-extra-grande-900-x-420-mm/olistsp/osp7g7z06znr5e9j/2ad27d26a0a683ad4b49cda1ccfe2fe8.jpeg",
+          "preco": 149.00,
+          "precoOriginal": 179.00,
+          "desconto": 17,
+          "parcelamento": "10x de R$ 14,90 sem juros",
+          "avaliacao": 4.7,
+          "avaliacoes": 520,
+          "vendidos": 480,
+          "descricao": "Mousepad gamer HyperX Fury S com superfície otimizada para deslize suave e base antiderrapante. Tamanho generoso para movimentos amplos.",
+          "beneficios": [
+            "Superfície de tecido de baixo atrito",
+            "Base de borracha antiderrapante",
+            "Costura reforçada nas bordas",
+            "Tamanho XL (90x42cm)",
+            "Compatível com vários tipos de mouse"
+          ],
+          "especificacoes": {
+            "marca": "HyperX",
+            "modelo": "Fury S Pro",
+            "tamanho": "90x42cm",
+            "espessura": "4mm",
+            "material": "Tecido + borracha",
+            "cor": "Preto"
+          },
+          "estoque": 40,
+          "destaque": false,
+          "relacionados": [
+            {
+              "id": 12
+            },
+            {
+              "id": 7
+            }
+          ]
+        }
+      ]
     }
   ]
 }
