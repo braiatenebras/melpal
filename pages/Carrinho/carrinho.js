@@ -146,3 +146,16 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.target === modalLocalizacao) modalLocalizacao.style.display = 'none';
     });
 });
+
+
+// menu para mobiles 
+
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburguer = document.querySelector('.menu-hamburguer');
+    const menuNav = document.querySelector('.menu-nav');
+
+    hamburguer.addEventListener('click', function () {
+        this.classList.toggle('aberto');
+        menuNav.classList.toggle('aberto');
+    });
+});
