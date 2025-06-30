@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Elementos do DOM
+    // elementos do DOM
     const campoBusca = document.getElementById('campo-busca');
     const sugestoesContainer = document.getElementById('sugestoes-busca');
     const formBusca = document.getElementById('form-busca');
     let produtos = [];
 
-    // Carrega os produtos do JSON
+    // carrega os produtos do JSON
     async function carregarProdutos() {
         try {
             const response = await fetch('pages/Detalhes/db.json');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Mostra sugestões de busca
+    // mostra sugestões de busca
     function mostrarSugestoes(termo) {
         sugestoesContainer.innerHTML = '';
 
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const termoLower = termo.toLowerCase();
         const sugestoes = produtos.filter(produto =>
             produto.nome.toLowerCase().includes(termoLower)
-        ).slice(0, 5); // Limita a 5 sugestões
+        ).slice(0, 5); // limita a 5 sugestões
 
         if (sugestoes.length > 0) {
             sugestoesContainer.innerHTML = sugestoes.map(produto => `
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             sugestoesContainer.style.display = 'block';
 
-            // Adiciona evento de clique nas sugestões
+            // adiciona evento de clique nas sugestões
             document.querySelectorAll('.sugestao-item').forEach(item => {
                 item.addEventListener('click', function () {
                     const id = this.getAttribute('data-id');
@@ -131,12 +131,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Modal Atendimento - 
+// Modal Atendimento 
 document.addEventListener('DOMContentLoaded', function () {
-    const atendimentoLink = document.getElementById('modal-atendimento');  // ID corrigido
+    const atendimentoLink = document.getElementById('modal-atendimento');
     const modalAtendimento = document.getElementById('modalAtendimento');
-    const fecharModalAtendimento = document.querySelector('.fechar-modal-atendimento');  // Seletor único
-    const botaoModalAtendimento = document.querySelector('.botao-modal-atendimento');  // Seletor único
+    const fecharModalAtendimento = document.querySelector('.fechar-modal-atendimento');
+    const botaoModalAtendimento = document.querySelector('.botao-modal-atendimento');
 
     atendimentoLink.addEventListener('click', function (e) {
         e.preventDefault();
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-// Modal Localização - 
+// Modal Localização 
 document.addEventListener('DOMContentLoaded', function () {
     const localizacaoLink = document.getElementById('modal-localizacao');  // ID corrigido
     const modalLocalizacao = document.getElementById('modalLocalizacao');
