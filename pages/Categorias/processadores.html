@@ -20,9 +20,9 @@
             </div>
 
             <div class="links-superiores">
-                <a href="#"><i class="fas fa-map-marker-alt"></i> Localização</a>
-                <a href="#"><i class="fas fa-headset"></i> Atendimento</a>
-                <a href="#"><i class="fas fa-truck"></i> Frete Grátis</a>
+                <a href="#" id="modal-localizacao"><i class="fas fa-map-marker-alt"></i> Localização</a>
+                <a href="#" id="modal-atendimento"><i class="fas fa-headset"></i> Atendimento</a>
+                <a href="#" id="frete-gratis-link"><i class="fas fa-truck"></i> Frete Grátis</a>
             </div>
         </div>
     </div>
@@ -164,7 +164,73 @@
                 <p>&copy; 2025 Bryan Kauan - Todos os direitos reservados</p>
             </div>
         </div>
+
+   <!-- Modal Frete Grátis -->
+   <div id="modalFrete" class="modal-frete">
+    <div class="modal-conteudo">
+        <span class="fechar-modal">&times;</span>
+        <h2 class="titulo-modal">Frete Grátis</h2>
+        <div class="texto-modal">
+            <p><i class="fas fa-check-circle" style="color: #d32f2f;"></i> Frete grátis para todo o Brasil em
+                compras acima de <strong>R$ 500.00,</strong></p>
+            <p><i class="fas fa-truck" style="color: #d32f2f;"></i> Para compras abaixo de R$ 500,00, o frete é
+                calculado conforme sua região.</p>
+            <p><i class="fas fa-clock" style="color: #d32f2f;"></i> Prazo de entrega: 3 a 10 dias úteis após
+                confirmação do pagamento.</p>
+            <p><i class="fas fa-gift" style="color: #d32f2f"></i> Promoção válida por tempo indeterminado.</p>
+            <br>
+            <p><i class="fas fa-exclamation-triangle" style="color: #d32f2f;"></i> Lembre-se: <strong> Essa loja não
+                    existe
+                    realmente, é apenas um projeto escolar.</strong> </p>
+        </div>
+        <button class="botao-modal">Entendi</button>
+    </div>
+</div>
+
+<!-- Modal Atendimento -->
+<div id="modalAtendimento" class="modal-atendimento">
+    <div class="modal-conteudo">
+        <span class="fechar-modal-atendimento">&times;</span> <!-- Classe única -->
+        <h2 class="titulo-modal">Atendimento</h2>
+        <div class="texto-modal">
+            <p><i class="fas fa-phone" style="color: #d32f2f;"></i> Telefone: (11) 1234-5678</p>
+            <p><i class="fas fa-envelope" style="color: #d32f2f;"></i> Email: contato@melpal.com.br</p>
+            <p><i class="fas fa-clock" style="color: #d32f2f;"></i> Horário: Seg-Sex, 9h-18h</p>
+            <br>
+            <p><i class="fas fa-exclamation-triangle" style="color: #d32f2f;"></i> Lembre-se: <strong>Essa loja não
+                    existe realmente, é apenas um projeto escolar.</strong></p>
+        </div>
+        <button class="botao-modal-atendimento">Entendi</button> <!-- Classe única -->
+    </div>
+</div>
+
+<!-- Modal Localização -->
+<div id="modalLocalizacao" class="modal-localizacao">
+    <div class="modal-conteudo">
+        <span class="fechar-modal-localizacao">&times;</span>
+        <h2 class="titulo-modal">Nossa Localização</h2>
+        <div class="texto-modal">
+            <p><i class="fas fa-map-marker-alt" style="color: #d32f2f;"></i> Endereço: Rua não existo, 123 - Centro,
+                Curitiba/PR</p>
+            <p><i class="fas fa-subway" style="color: #d32f2f;"></i> Metrô mais próximo: Estação Exemplo (Linha
+                1-Azul)</p>
+            <p><i class="fas fa-clock" style="color: #d32f2f;"></i> Horário de Funcionamento: Seg-Sex, 9h-18h</p>
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0;"
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <br>
+            <p><i class="fas fa-exclamation-triangle" style="color: #d32f2f;"></i> Lembre-se: <strong>Essa loja não
+                    existe realmente, é apenas um projeto escolar.</strong></p>
+        </div>
+        <button class="botao-modal-localizacao">Entendi</button>
+    </div>
+</div>
+
     </footer>
+
+
+
     <script src="script.js"></script>
 </body>
 

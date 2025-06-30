@@ -99,3 +99,99 @@ document.addEventListener('DOMContentLoaded', function() {
         menuNav.classList.toggle('aberto');
     });
 });
+
+
+// Modal Frete Grátis
+document.addEventListener('DOMContentLoaded', function () {
+    const freteGratisLink = document.getElementById('frete-gratis-link');
+    const modalFrete = document.getElementById('modalFrete');
+    const fecharModal = document.querySelector('.fechar-modal');
+    const botaoModal = document.querySelector('.botao-modal');
+
+    freteGratisLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        modalFrete.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+
+    fecharModal.addEventListener('click', function () {
+        modalFrete.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    botaoModal.addEventListener('click', function () {
+        modalFrete.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', function (e) {
+        if (e.target === modalFrete) {
+            modalFrete.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
+// Modal Atendimento 
+document.addEventListener('DOMContentLoaded', function () {
+    const atendimentoLink = document.getElementById('modal-atendimento');
+    const modalAtendimento = document.getElementById('modalAtendimento');
+    const fecharModalAtendimento = document.querySelector('.fechar-modal-atendimento');
+    const botaoModalAtendimento = document.querySelector('.botao-modal-atendimento');
+
+    atendimentoLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        modalAtendimento.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+
+    fecharModalAtendimento.addEventListener('click', function () {
+        modalAtendimento.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    botaoModalAtendimento.addEventListener('click', function () {
+        modalAtendimento.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', function (e) {
+        if (e.target === modalAtendimento) {
+            modalAtendimento.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
+
+
+// Modal Localização 
+document.addEventListener('DOMContentLoaded', function () {
+    const localizacaoLink = document.getElementById('modal-localizacao');  // ID corrigido
+    const modalLocalizacao = document.getElementById('modalLocalizacao');
+    const fecharModalLocalizacao = document.querySelector('.fechar-modal-localizacao');  // Seletor único
+    const botaoModalLocalizacao = document.querySelector('.botao-modal-localizacao');  // Seletor único
+
+    localizacaoLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        modalLocalizacao.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+
+    fecharModalLocalizacao.addEventListener('click', function () {
+        modalLocalizacao.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    botaoModalLocalizacao.addEventListener('click', function () {
+        modalLocalizacao.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+
+    window.addEventListener('click', function (e) {
+        if (e.target === modalLocalizacao) {
+            modalLocalizacao.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
