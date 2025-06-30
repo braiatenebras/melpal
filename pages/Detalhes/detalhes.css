@@ -713,11 +713,52 @@ a {
 }
 
 /* Responsividade */
+
 @media (max-width: 768px) {
     .barra-superior .conteiner {
         flex-direction: column;
         gap: 10px;
         align-items: center;
+    }
+
+    .modal-conteudo {
+        width: 95%;
+        margin: 10% auto;
+        padding: 20px 15px;
+    }
+
+    .titulo-modal {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+    }
+
+    .texto-modal p {
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+
+    .botao-modal,
+    .botao-modal-atendimento,
+    .botao-modal-localizacao {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .modal-localizacao .modal-conteudo {
+        width: 95%;
+        max-width: none;
+    }
+
+    .mapa-container iframe {
+        height: 250px;
+    }
+
+    @media (max-height: 600px) {
+        .modal-conteudo {
+            margin: 5% auto;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
     }
 
     .cabecalho-principal .conteiner {
