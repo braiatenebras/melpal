@@ -1016,86 +1016,284 @@
         },
         {
           "id": 7
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "nome": "Placa-Mãe B550M Aorus Elite",
+      "categoria": "Hardware",
+      "imagem": "https://images.kabum.com.br/produtos/fotos/114781/placa-mae-gigabyte-b550m-aorus-elite-amd-am4-micro-atx-ddr4_1594908595_gg.jpg",
+      "preco": 899.00,
+      "precoOriginal": 999.00,
+      "desconto": 10,
+      "parcelamento": "10x de R$ 89,90 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 420,
+      "vendidos": 380,
+      "descricao": "Placa-mãe Gigabyte B550M Aorus Elite para AMD AM4 com suporte a PCIe 4.0, VRMs robustos e conexões avançadas. Ideal para montagens gamers e de alto desempenho.",
+      "beneficios": [
+        "Suporte a processadores AMD Ryzen (AM4)",
+        "Chipset B550 com PCIe 4.0",
+        "VRMs robustos para overclock",
+        "2 slots M.2 para SSDs ultrarrápidos",
+        "Áudio ALC1200 de alta qualidade"
+      ],
+      "especificacoes": {
+        "marca": "Gigabyte",
+        "modelo": "B550M Aorus Elite",
+        "socket": "AM4",
+        "chipset": "B550",
+        "memoria": "4x DDR4 (até 4400MHz)",
+        "slots": "1x PCIe 4.0 x16",
+        "conexoes": "6x SATA, 2x M.2",
+        "formato": "Micro ATX"
+      },
+      "estoque": 18,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 2
         },
         {
-          "id": 26,
-          "nome": "Placa-Mãe B550M Aorus Elite",
-          "categoria": "Hardware",
-          "imagem": "https://images.kabum.com.br/produtos/fotos/114781/placa-mae-gigabyte-b550m-aorus-elite-amd-am4-micro-atx-ddr4_1594908595_gg.jpg",
-          "preco": 899.00,
-          "precoOriginal": 999.00,
-          "desconto": 10,
-          "parcelamento": "10x de R$ 89,90 sem juros",
-          "avaliacao": 4.8,
-          "avaliacoes": 420,
-          "vendidos": 380,
-          "descricao": "Placa-mãe Gigabyte B550M Aorus Elite para AMD AM4 com suporte a PCIe 4.0, VRMs robustos e conexões avançadas. Ideal para montagens gamers e de alto desempenho.",
-          "beneficios": [
-            "Suporte a processadores AMD Ryzen (AM4)",
-            "Chipset B550 com PCIe 4.0",
-            "VRMs robustos para overclock",
-            "2 slots M.2 para SSDs ultrarrápidos",
-            "Áudio ALC1200 de alta qualidade"
-          ],
-          "especificacoes": {
-            "marca": "Gigabyte",
-            "modelo": "B550M Aorus Elite",
-            "socket": "AM4",
-            "chipset": "B550",
-            "memoria": "4x DDR4 (até 4400MHz)",
-            "slots": "1x PCIe 4.0 x16",
-            "conexoes": "6x SATA, 2x M.2",
-            "formato": "Micro ATX"
-          },
-          "estoque": 18,
-          "destaque": true,
-          "relacionados": [
-            {
-              "id": 2
-            },
-            {
-              "id": 14
-            }
-          ]
+          "id": 14
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "nome": "Mousepad Gamer HyperX Fury S",
+      "categoria": "Periféricos",
+      "imagem": "https://a-static.mlcdn.com.br/1500x1500/mousepad-gamer-hyperx-fury-s-speed-extra-grande-900-x-420-mm/olistsp/osp7g7z06znr5e9j/2ad27d26a0a683ad4b49cda1ccfe2fe8.jpeg",
+      "preco": 149.00,
+      "precoOriginal": 179.00,
+      "desconto": 17,
+      "parcelamento": "10x de R$ 14,90 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 520,
+      "vendidos": 480,
+      "descricao": "Mousepad gamer HyperX Fury S com superfície otimizada para deslize suave e base antiderrapante. Tamanho generoso para movimentos amplos.",
+      "beneficios": [
+        "Superfície de tecido de baixo atrito",
+        "Base de borracha antiderrapante",
+        "Costura reforçada nas bordas",
+        "Tamanho XL (90x42cm)",
+        "Compatível com vários tipos de mouse"
+      ],
+      "especificacoes": {
+        "marca": "HyperX",
+        "modelo": "Fury S Pro",
+        "tamanho": "90x42cm",
+        "espessura": "4mm",
+        "material": "Tecido + borracha",
+        "cor": "Preto"
+      },
+      "estoque": 40,
+      "destaque": false,
+      "relacionados": [
+        {
+          "id": 12
         },
         {
-          "id": 27,
-          "nome": "Mousepad Gamer HyperX Fury S",
-          "categoria": "Periféricos",
-          "imagem": "https://a-static.mlcdn.com.br/1500x1500/mousepad-gamer-hyperx-fury-s-speed-extra-grande-900-x-420-mm/olistsp/osp7g7z06znr5e9j/2ad27d26a0a683ad4b49cda1ccfe2fe8.jpeg",
-          "preco": 149.00,
-          "precoOriginal": 179.00,
-          "desconto": 17,
-          "parcelamento": "10x de R$ 14,90 sem juros",
-          "avaliacao": 4.7,
-          "avaliacoes": 520,
-          "vendidos": 480,
-          "descricao": "Mousepad gamer HyperX Fury S com superfície otimizada para deslize suave e base antiderrapante. Tamanho generoso para movimentos amplos.",
-          "beneficios": [
-            "Superfície de tecido de baixo atrito",
-            "Base de borracha antiderrapante",
-            "Costura reforçada nas bordas",
-            "Tamanho XL (90x42cm)",
-            "Compatível com vários tipos de mouse"
-          ],
-          "especificacoes": {
-            "marca": "HyperX",
-            "modelo": "Fury S Pro",
-            "tamanho": "90x42cm",
-            "espessura": "4mm",
-            "material": "Tecido + borracha",
-            "cor": "Preto"
-          },
-          "estoque": 40,
-          "destaque": false,
-          "relacionados": [
-            {
-              "id": 12
-            },
-            {
-              "id": 7
-            }
-          ]
+          "id": 7
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "nome": "Smartwatch Samsung Galaxy Watch5 44mm Bluetooth",
+      "categoria": "Dispositivos Inteligentes",
+      "imagem": "https://fujiokadistribuidor.vteximg.com.br/arquivos/ids/269290",
+      "preco": 1299.00,
+      "precoOriginal": 1599.00,
+      "desconto": 19,
+      "parcelamento": "10x de R$ 129,90 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 892,
+      "vendidos": 710,
+      "descricao": "Smartwatch Samsung Galaxy Watch5 com monitoramento avançado de saúde, resistência à água, bateria de longa duração e design premium.",
+      "beneficios": [
+        "Monitor de frequência cardíaca e sono",
+        "Resistente à água (5ATM + IP68)",
+        "Bateria de até 50 horas",
+        "Processador Exynos W920 dual-core",
+        "Compatible com Android e iOS"
+      ],
+      "especificacoes": {
+        "marca": "Samsung",
+        "modelo": "SM-R910NZKA",
+        "tela": "1.4\" Super AMOLED (450x450)",
+        "conectividade": "Bluetooth 5.2",
+        "bateria": "410mAh",
+        "resistencia": "5ATM + IP68",
+        "sensores": "Acelerômetro, Giroscópio, Bússola, Sensor de luz"
+      },
+      "estoque": 22,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 31
+        },
+        {
+          "id": 21
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "nome": "Caixa de Som JBL Charge 5 Bluetooth à Prova d'Água",
+      "categoria": "Áudio",
+      "imagem": "https://www.jbl.com.br/dw/image/v2/BFND_PRD/on/demandware.static/-/Sites-masterCatalog_Harman/default/dw715cb73a/JBL_CHARGE5_HERO_BLACK_0046_x1.png?sw=535&sh=535",
+      "preco": 899.00,
+      "precoOriginal": 1099.00,
+      "desconto": 18,
+      "parcelamento": "10x de R$ 89,90 sem juros",
+      "avaliacao": 4.9,
+      "avaliacoes": 1245,
+      "vendidos": 980,
+      "descricao": "Caixa de som portátil JBL Charge 5 com som potente, bateria de 20 horas, resistência IP67 e função powerbank para carregar dispositivos.",
+      "beneficios": [
+        "Potência de 40W RMS",
+        "Bateria de 20 horas",
+        "Resistência IP67 (à prova d'água e poeira)",
+        "Função powerbank via USB",
+        "Conexão JBL PartyBoost para ligar múltiplas caixas"
+      ],
+      "especificacoes": {
+        "marca": "JBL",
+        "modelo": "Charge 5",
+        "potencia": "40W RMS",
+        "bateria": "7500mAh (20h)",
+        "conexao": "Bluetooth 5.1",
+        "resistencia": "IP67",
+        "peso": "960g"
+      },
+      "estoque": 18,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 24
+        },
+        {
+          "id": 30
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "nome": "Drone DJI Mini 2 Fly More Combo",
+      "categoria": "Eletrônicos",
+      "imagem": "https://cdn.awsli.com.br/800x800/514/514723/produto/73787877/d7ac3cd840.jpg",
+      "preco": 3499.00,
+      "precoOriginal": 3999.00,
+      "desconto": 13,
+      "parcelamento": "10x de R$ 349,90 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 567,
+      "vendidos": 430,
+      "descricao": "Drone DJI Mini 2 com câmera 4K, peso inferior a 249g, 31 minutos de voo e transmissão de vídeo OcuSync 2.0 de até 10km.",
+      "beneficios": [
+        "Câmera 4K/30fps com estabilização 3-axis",
+        "Peso de 249g (não requer registro)",
+        "Até 31 minutos de voo",
+        "Transmissão OcuSync 2.0 (10km)",
+        "Inclui 3 baterias e maleta de transporte"
+      ],
+      "especificacoes": {
+        "marca": "DJI",
+        "modelo": "Mini 2 Fly More Combo",
+        "camera": "1/2.3\" CMOS (12MP)",
+        "transmissao": "OcuSync 2.0 (10km)",
+        "bateria": "2250mAh (31min)",
+        "peso": "249g",
+        "velocidade": "16m/s (S-mode)"
+      },
+      "estoque": 8,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 21
+        },
+        {
+          "id": 25
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "nome": "Impressora Multifuncional Epson EcoTank L3250",
+      "categoria": "Escritório",
+      "imagem": "https://lojaibyte.vteximg.com.br/arquivos/ids/414609-1200-1200/impressora-multifuncional-epson-ecotank-l3250-001.jpg?v=638234683329700000",
+      "preco": 1299.00,
+      "precoOriginal": 1599.00,
+      "desconto": 19,
+      "parcelamento": "10x de R$ 129,90 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 782,
+      "vendidos": 650,
+      "descricao": "Impressora multifuncional Epson EcoTank L3250 com tanque de tinta recarregável, Wi-Fi e economia de até 90% no custo por página.",
+      "beneficios": [
+        "Tanque de tinta recarregável (inclui tintas)",
+        "Custo por página até 90% menor",
+        "Conexão Wi-Fi e Wi-Fi Direct",
+        "Imprime, copia e digitaliza",
+        "Tecnologia sem calor (Menor consumo)"
+      ],
+      "especificacoes": {
+        "marca": "Epson",
+        "modelo": "EcoTank L3250",
+        "funcoes": "Impressão, cópia, digitalização",
+        "conexao": "Wi-Fi, USB",
+        "velocidade": "10ppm (preto), 5ppm (colorido)",
+        "resolucao": "5760x1440 dpi"
+      },
+      "estoque": 12,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 15
+        },
+        {
+          "id": 20
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "nome": "Router Wi-Fi 6 TP-Link Archer AX50",
+      "categoria": "Redes",
+      "imagem": "https://http2.mlstatic.com/D_NQ_NP_932286-MLA84554073308_052025-O.webp",
+      "preco": 799.00,
+      "precoOriginal": 899.00,
+      "desconto": 11,
+      "parcelamento": "10x de R$ 79,90 sem juros",
+      "avaliacao": 4.6,
+      "avaliacoes": 432,
+      "vendidos": 380,
+      "descricao": "Router Wi-Fi 6 AX3000 da TP-Link com velocidade até 2.4Gbps, OFDMA e tecnologia antivírus integrada.",
+      "beneficios": [
+        "Wi-Fi 6 (802.11ax) com até 2.4Gbps",
+        "4 antenas de alto ganho",
+        "Tecnologia OFDMA para múltiplos dispositivos",
+        "Antivírus integrado (TP-Link HomeCare)",
+        "Compatível com Alexa"
+      ],
+      "especificacoes": {
+        "marca": "TP-Link",
+        "modelo": "Archer AX50",
+        "padrao": "Wi-Fi 6 AX3000",
+        "portas": "4x Gigabit LAN, 1x Gigabit WAN",
+        "velocidade": "574Mbps (2.4GHz) + 2402Mbps (5GHz)",
+        "cpu": "Intel dual-core 1.0GHz"
+      },
+      "estoque": 14,
+      "destaque": false,
+      "relacionados": [
+        {
+          "id": 5
+        },
+        {
+          "id": 21
         }
       ]
     }
