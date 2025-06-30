@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return 'R$ ' + preco.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, '$1.');
     }
 
-    // Função para criar elementos de estrelas de avaliação
+    // Função para criar estrelas de avaliação
     function criarEstrelasAvaliacao(nota) {
         let estrelasHTML = '';
         const estrelasCheias = Math.floor(nota);
@@ -33,6 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        document.querySelector('.produtos-relacionados').style.display = 'block';
+
         produtosRelacionados.forEach(relacionado => {
             const produto = todosProdutos.find(p => p.id === relacionado.id);
             if (produto) {
@@ -49,8 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h3>${produto.nome}</h3>
                         <div class="preco">
                             ${produto.precoOriginal && produto.precoOriginal > produto.preco
-                        ? `<span class="preco-antigo">${formatarPreco(produto.precoOriginal)}</span>`
-                        : ''}
+                        ? `<span class="preco-antigo">${formatarPreco(produto.precoOriginal)}</span>` : ''}
                             <span class="preco-atual">${formatarPreco(produto.preco)}</span>
                         </div>
                         <div class="parcelamento">${produto.parcelamento || ''}</div>
@@ -59,6 +60,43 @@ document.addEventListener('DOMContentLoaded', function () {
                 container.appendChild(productCard);
             }
         });
+    }
+
+    // Função para adicionar produto ao carrinho
+    function adicionarAoCarrinho(produto) {
+        const quantidade = parseInt(document.getElementById('quantidade').value);
+
+        const produtoCarrinho = {
+            id: produto.id,
+            nome: produto.nome,
+            preco: produto.preco,
+            imagem: produto.imagem,
+            quantidade: quantidade
+        };
+
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+        const itemExistenteIndex = carrinho.findIndex(item => item.id === produto.id);
+
+        if (itemExistenteIndex !== -1) {
+            carrinho[itemExistenteIndex].quantidade += quantidade;
+        } else {
+            carrinho.push(produtoCarrinho);
+        }
+
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+        const feedback = document.createElement('div');
+        feedback.className = 'feedback-carrinho';
+        feedback.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            <span>Produto adicionado ao carrinho!</span>
+        `;
+        document.body.appendChild(feedback);
+
+        setTimeout(() => {
+            feedback.remove();
+        }, 3000);
     }
 
     // Função principal para carregar os dados do produto
@@ -76,82 +114,72 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) throw new Error('Falha ao carregar dados');
 
             const data = await response.json();
-            const produto = data.produtos.find(p => p.id == produtoId);
+            const produtoAtual = data.produtos.find(p => p.id == produtoId);
 
-            if (!produto) {
+            if (!produtoAtual) {
                 window.location.href = '../../index.html';
                 return;
             }
 
-            // Atualizar título da página
-            document.title = `${produto.nome} - MelPal Tech`;
-            document.getElementById('produto-titulo').textContent = produto.nome;
+            document.title = `${produtoAtual.nome} - MelPal Tech`;
+            document.getElementById('produto-titulo').textContent = produtoAtual.nome;
 
-            // Preencher informações básicas
-            document.getElementById('produto-nome').textContent = produto.nome;
-            document.getElementById('produto-imagem').src = produto.imagem;
-            document.getElementById('produto-imagem').alt = produto.nome;
-            document.getElementById('produto-descricao').textContent = produto.descricao;
-            document.getElementById('categoria-produto').textContent = produto.categoria;
-            document.getElementById('nome-produto-caminho').textContent = produto.nome;
+            document.getElementById('produto-nome').textContent = produtoAtual.nome;
+            document.getElementById('produto-imagem').src = produtoAtual.imagem;
+            document.getElementById('produto-imagem').alt = produtoAtual.nome;
+            document.getElementById('produto-descricao').textContent = produtoAtual.descricao;
+            document.getElementById('categoria-produto').textContent = produtoAtual.categoria;
+            document.getElementById('nome-produto-caminho').textContent = produtoAtual.nome;
 
-            // Preencher informações de preço
-            document.getElementById('produto-preco').textContent = formatarPreco(produto.preco);
+            document.getElementById('produto-preco').textContent = formatarPreco(produtoAtual.preco);
 
             const precoOriginalElement = document.getElementById('produto-preco-original');
-            if (produto.precoOriginal && produto.precoOriginal > produto.preco) {
-                precoOriginalElement.textContent = formatarPreco(produto.precoOriginal);
+            if (produtoAtual.precoOriginal && produtoAtual.precoOriginal > produtoAtual.preco) {
+                precoOriginalElement.textContent = formatarPreco(produtoAtual.precoOriginal);
                 precoOriginalElement.style.display = 'block';
             } else {
                 precoOriginalElement.style.display = 'none';
             }
 
-            // Preencher parcelamento
-            document.getElementById('produto-parcelamento').textContent = produto.parcelamento || '';
+            document.getElementById('produto-parcelamento').textContent = produtoAtual.parcelamento || '';
+            document.getElementById('produto-vendidos').textContent = produtoAtual.vendidos ? `${produtoAtual.vendidos} vendidos` : 'Novo';
 
-            // Preencher informações de vendas
-            document.getElementById('produto-vendidos').textContent = produto.vendidos ? `${produto.vendidos} vendidos` : 'Novo';
-
-            // Preencher avaliações
             const avaliacoesElement = document.getElementById('produto-avaliacoes');
-            avaliacoesElement.textContent = produto.avaliacoes ? `(${produto.avaliacoes} avaliações)` : '(Sem avaliações)';
+            avaliacoesElement.textContent = produtoAtual.avaliacoes ? `(${produtoAtual.avaliacoes} avaliações)` : '(Sem avaliações)';
 
-            // Preencher estrelas de avaliação
             const estrelasContainer = document.getElementById('produto-avaliacao');
-            estrelasContainer.innerHTML = produto.avaliacao ? criarEstrelasAvaliacao(produto.avaliacao) : '';
+            estrelasContainer.innerHTML = produtoAtual.avaliacao ? criarEstrelasAvaliacao(produtoAtual.avaliacao) : '';
 
-            // Preencher benefícios
             const beneficiosContainer = document.getElementById('produto-beneficios');
             beneficiosContainer.innerHTML = '';
-
-            if (produto.beneficios && produto.beneficios.length > 0) {
-                produto.beneficios.forEach(beneficio => {
+            if (produtoAtual.beneficios && produtoAtual.beneficios.length > 0) {
+                produtoAtual.beneficios.forEach(beneficio => {
                     const li = document.createElement('li');
                     li.textContent = beneficio;
                     beneficiosContainer.appendChild(li);
                 });
             }
 
-            // Configurar botões de quantidade
-            const inputQuantidade = document.getElementById('quantidade');
             document.querySelector('.qtd-btn.mais').addEventListener('click', function () {
-                if (parseInt(inputQuantidade.value) < 10) {
-                    inputQuantidade.value = parseInt(inputQuantidade.value) + 1;
+                const input = document.getElementById('quantidade');
+                if (parseInt(input.value) < 10) {
+                    input.value = parseInt(input.value) + 1;
                 }
             });
 
             document.querySelector('.qtd-btn.menos').addEventListener('click', function () {
-                if (parseInt(inputQuantidade.value) > 1) {
-                    inputQuantidade.value = parseInt(inputQuantidade.value) - 1;
+                const input = document.getElementById('quantidade');
+                if (parseInt(input.value) > 1) {
+                    input.value = parseInt(input.value) - 1;
                 }
             });
 
-            // Carregar produtos relacionados
-            if (produto.relacionados && produto.relacionados.length > 0) {
-                carregarProdutosRelacionados(produto.relacionados, data.produtos);
-            } else {
-                document.querySelector('.produtos-relacionados').style.display = 'none';
-            }
+            document.getElementById('adicionar-carrinho').addEventListener('click', function () {
+                adicionarAoCarrinho(produtoAtual);
+            });
+
+            // ⚠️ Aqui está a chamada para carregar os produtos relacionados
+            carregarProdutosRelacionados(produtoAtual.relacionados, data.produtos);
 
         } catch (error) {
             console.error('Erro ao carregar os detalhes do produto:', error);
@@ -159,194 +187,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Iniciar o carregamento da página
     carregarDetalhesProduto();
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Elementos do DOM
-    const campoBusca = document.getElementById('campo-busca');
-    const sugestoesContainer = document.getElementById('sugestoes-busca');
-    const formBusca = document.getElementById('form-busca');
-    let produtos = [];
-
-    // Carrega os produtos do JSON
-    async function carregarProdutos() {
-        try {
-            const response = await fetch('db.json');
-            if (!response.ok) throw new Error('Erro ao carregar produtos');
-            const data = await response.json();
-            produtos = data.produtos;
-        } catch (error) {
-            console.error('Erro:', error);
-        }
-    }
-
-    // Mostra sugestões de busca
-    function mostrarSugestoes(termo) {
-        sugestoesContainer.innerHTML = '';
-
-        if (!termo || termo.length < 2) {
-            sugestoesContainer.style.display = 'none';
-            return;
-        }
-
-        const termoLower = termo.toLowerCase();
-        const sugestoes = produtos.filter(produto =>
-            produto.nome.toLowerCase().includes(termoLower)
-        ).slice(0, 5); // Limita a 5 sugestões
-
-        if (sugestoes.length > 0) {
-            sugestoesContainer.innerHTML = sugestoes.map(produto => `
-                <div class="sugestao-item" data-id="${produto.id}">
-                    <img src="${produto.imagem}" alt="${produto.nome}">
-                    <div>
-                        <div class="sugestao-nome">${produto.nome}</div>
-                        <div class="sugestao-preco">${formatarPreco(produto.preco)}</div>
-                    </div>
-                </div>
-            `).join('');
-
-            sugestoesContainer.style.display = 'block';
-
-            // Adiciona evento de clique nas sugestões
-            document.querySelectorAll('.sugestao-item').forEach(item => {
-                item.addEventListener('click', function () {
-                    const id = this.getAttribute('data-id');
-                    window.location.href = `detalhes.html?id=${id}`;
-                });
-            });
-        } else {
-            sugestoesContainer.style.display = 'none';
-        }
-    }
-
-    // Formata preço
-    function formatarPreco(preco) {
-        return 'R$ ' + preco.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, '$1.');
-    }
-
-    // Eventos
-    campoBusca.addEventListener('input', function () {
-        mostrarSugestoes(this.value);
-    });
-
-    campoBusca.addEventListener('focus', function () {
-        if (this.value.length >= 2) {
-            mostrarSugestoes(this.value);
-        }
-    });
-
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('.barra-busca')) {
-            sugestoesContainer.style.display = 'none';
-        }
-    });
-
-    formBusca.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const termo = campoBusca.value.trim();
-        if (termo) {
-            console.log('Buscar por:', termo);
-        }
-    });
-
-    // Inicializa
-    carregarProdutos();
-});
-
-
-// Modal Frete Grátis
-document.addEventListener('DOMContentLoaded', function () {
-    const freteGratisLink = document.getElementById('frete-gratis-link');
-    const modalFrete = document.getElementById('modalFrete');
-    const fecharModal = document.querySelector('.fechar-modal');
-    const botaoModal = document.querySelector('.botao-modal');
-
-    freteGratisLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        modalFrete.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-
-    fecharModal.addEventListener('click', function () {
-        modalFrete.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    botaoModal.addEventListener('click', function () {
-        modalFrete.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-        if (e.target === modalFrete) {
-            modalFrete.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-});
-
-// Modal Atendimento 
-document.addEventListener('DOMContentLoaded', function () {
-    const atendimentoLink = document.getElementById('modal-atendimento');
-    const modalAtendimento = document.getElementById('modalAtendimento');
-    const fecharModalAtendimento = document.querySelector('.fechar-modal-atendimento');
-    const botaoModalAtendimento = document.querySelector('.botao-modal-atendimento');
-
-    atendimentoLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        modalAtendimento.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-
-    fecharModalAtendimento.addEventListener('click', function () {
-        modalAtendimento.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    botaoModalAtendimento.addEventListener('click', function () {
-        modalAtendimento.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-        if (e.target === modalAtendimento) {
-            modalAtendimento.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-});
-
-
-
-// Modal Localização 
-document.addEventListener('DOMContentLoaded', function () {
-    const localizacaoLink = document.getElementById('modal-localizacao');  // ID corrigido
-    const modalLocalizacao = document.getElementById('modalLocalizacao');
-    const fecharModalLocalizacao = document.querySelector('.fechar-modal-localizacao');  // Seletor único
-    const botaoModalLocalizacao = document.querySelector('.botao-modal-localizacao');  // Seletor único
-
-    localizacaoLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        modalLocalizacao.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-
-    fecharModalLocalizacao.addEventListener('click', function () {
-        modalLocalizacao.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    botaoModalLocalizacao.addEventListener('click', function () {
-        modalLocalizacao.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-        if (e.target === modalLocalizacao) {
-            modalLocalizacao.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
 });

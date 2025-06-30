@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware - MelPal Tech</title>
+    <title>Carrinho - MelPal Tech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="carrinho.css">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
             <div class="acoes-usuario">
                 <a href="#"><i class="fas fa-user"></i> Minha Conta</a>
                 <a href="#"><i class="fas fa-heart"></i> Favoritos</a>
-                <a href="../Carrinho/carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+                <a href="carrinho.html"><i class="fas fa-shopping-cart"></i> Carrinho</a>
             </div>
 
             <div class="links-superiores">
@@ -31,7 +32,7 @@
     <header class="cabecalho-principal">
         <div class="conteiner">
             <div class="logo">
-                <img src="../../assets/MelPal.png" alt="MelPal - Loja de Hardware">
+                <a href="../../index.html"><img src="../../assets/MelPal.png" alt="MelPal - Loja de Hardware"></a>
             </div>
             <div class="barra-busca">
                 <form id="form-busca" autocomplete="off">
@@ -40,6 +41,7 @@
                 </form>
                 <div id="sugestoes-busca" class="sugestoes-container"></div>
             </div>
+        </div>
     </header>
 
     <!-- Navegação -->
@@ -52,66 +54,117 @@
             </button>
             <ul class="menu-nav">
                 <li><a href="../../index.html">Home</a></li>
-                <li><a href="hardware.html">Hardware</a></li>
-                <li><a href="placasdevideo.html">Placas de Vídeo</a></li>
-                <li><a href="processadores.html">Processadores</a></li>
-                <li><a href="memorias.html">Memórias</a></li>
-                <li><a href="perifericos.html">Periféricos</a></li>
+                <li><a href="../Categorias/hardware.html">Hardware</a></li>
+                <li><a href="../Categorias/placasdevideo.html">Placas de Vídeo</a></li>
+                <li><a href="../Categorias/processadores.html">Processadores</a></li>
+                <li><a href="../Categorias/memorias.html">Memórias</a></li>
+                <li><a href="../Categorias/perifericos.html">Periféricos</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Seção de Placas de Vídeo -->
-    <section class="produtos-destaque">
+    <!-- Conteúdo Principal -->
+    <main class="conteudo-carrinho">
         <div class="conteiner">
-            <h2 class="titulo-secao">Placas de Vídeo</h2>
-            <div class="grade-produtos">
+            <h1 class="titulo-secao"><i class="fas fa-shopping-cart"></i> Seu Carrinho</h1>
 
-                <!-- RTX 3080 Ti -->
-                <div class="cartao-produto">
-                    <span class="etiqueta-desconto">-15%</span>
-                    <img src="../../assets/3080ti.png" alt="Placa de Vídeo RTX 3080 Ti">
-                    <h3>Placa de Vídeo RTX 3080 Ti 12GB</h3>
-                    <div class="preco">
-                        <span class="preco-antigo">R$ 8.999,00</span>
-                        <span class="preco-atual">R$ 7.649,00</span>
+            <div class="carrinho-container">
+                <div class="itens-carrinho">
+                    <!-- Itens serão adicionados dinamicamente via JavaScript -->
+                    <div class="carrinho-vazio">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Seu carrinho está vazio</p>
+                        <a href="../Categorias/hardware.html" class="botao">Continuar Comprando</a>
                     </div>
-                    <div class="parcelamento">10x de R$ 764,90 sem juros</div>
-                    <button class="botao-carrinho"
-                        onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=1'">Comprar</button>
                 </div>
 
-                <!-- GTX 1660 Super -->
-                <div class="cartao-produto">
-                    <span class="etiqueta-desconto">-17%</span>
-                    <img src="../../assets/gtx1660super.png" alt="Placa de Vídeo GTX 1660 Super">
-                    <h3>Placa de Vídeo GTX 1660 Super 6GB</h3>
-                    <div class="preco">
-                        <span class="preco-antigo">R$ 1.799,00</span>
-                        <span class="preco-atual">R$ 1.499,00</span>
+                <div class="resumo-carrinho">
+                    <h3>Resumo do Pedido</h3>
+                    <div class="resumo-linha">
+                        <span>Subtotal</span>
+                        <span id="subtotal">R$ 0,00</span>
                     </div>
-                    <div class="parcelamento">10x de R$ 149,90 sem juros</div>
-                    <button class="botao-carrinho"
-                        onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=9'">Comprar</button>
-                </div>
-
-                <!-- RX 6700 XT -->
-                <div class="cartao-produto">
-                    <span class="etiqueta-desconto">-10%</span>
-                    <img src="../../assets/rx6700xt.png" alt="Placa de Vídeo RX 6700 XT">
-                    <h3>Placa de Vídeo RX 6700 XT 12GB</h3>
-                    <div class="preco">
-                        <span class="preco-antigo">R$ 2.999,00</span>
-                        <span class="preco-atual">R$ 2.699,00</span>
+                    <div class="resumo-linha">
+                        <span>Frete</span>
+                        <span id="frete">Grátis</span>
                     </div>
-                    <div class="parcelamento">10x de R$ 269,90 sem juros</div>
-                    <button class="botao-carrinho"
-                        onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=13'">Comprar</button>
+                    <div class="resumo-linha total">
+                        <span>Total</span>
+                        <span id="total">R$ 0,00</span>
+                    </div>
+                    <button id="finalizar-compra" class="botao">Finalizar Compra</button>
+                    <div class="metodos-pagamento">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fas fa-barcode"></i>
+                    </div>
                 </div>
+            </div>
 
+            <div class="produtos-sugeridos">
+                <h3>Você também pode gostar</h3>
+                <div class="grade-produtos">
+
+                    <!-- Produto relacionado -->
+                    <div class="cartao-produto">
+                        <img src="../../assets/monitor.png" alt="Monitor Gamer">
+                        <h3>Monitor Gamer AOC Hero 27 Full HD 144hz </h3>
+                        <div class="preco">
+                            <span class="preco-atual"> R$ 759,00</span>
+                        </div>
+                        <div class="parcelamento">10x de R$ 75,90 sem juros</div>
+                        <button class="botao-carrinho"
+                            onclick="window.location.href='../Detalhes/detalhes.html?id=5'">Comprar</button>
+                    </div>
+
+                    <!-- Produto relacionado -->
+                    <div class="cartao-produto">
+                        <span class="etiqueta-desconto">-20%</span>
+                        <img src="../../assets/controle.png" alt="Controle de Playstation 5">
+                        <h3>Controle Sony DualSense PS5</h3>
+                        <div class="preco">
+                            <span class="preco-antigo">R$ 450,00</span>
+                            <span class="preco-atual">R$ 380,00</span>
+                        </div>
+                        <div class="parcelamento">10x de R$ 38,00 sem juros</div>
+                        <button class="botao-carrinho"
+                            onclick="window.location.href='../Detalhes/detalhes.html?id=6'">Comprar</button>
+                    </div>
+
+                    <!-- Produto relacionado -->
+                    <div class="cartao-produto">
+                        <img src="../../assets/ryzen9.png" alt="Processador Ryzen 9">
+                        <h3>Processador AMD Ryzen 9 5900X</h3>
+                        <div class="preco">
+                            <span class="preco-atual">R$ 3.299,00</span>
+                        </div>
+                        <div class="parcelamento">10x de R$ 329,90 sem juros</div>
+                        <button class="botao-carrinho"
+                            onclick="window.location.href='../Detalhes/detalhes.html?id=2'">Comprar</button>
+                    </div>
+
+                    <!-- Produto relacionado -->
+                    <div class="cartao-produto">
+                        <span class="etiqueta-desconto">-20%</span>
+                        <img src="../../assets/ram32.png" alt="Memória RAM DDR4">
+                        <h3>Memória RAM DDR4 32GB 3200MHz</h3>
+                        <div class="preco">
+                            <span class="preco-antigo">R$ 1.299,00</span>
+                            <span class="preco-atual">R$ 1.039,00</span>
+                        </div>
+                        <div class="parcelamento">10x de R$ 103,90 sem juros</div>
+                        <button class="botao-carrinho"
+                            onclick="window.location.href='../Detalhes/detalhes.html?id=3'">Comprar</button>
+                    </div>
+
+
+
+                </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Rodapé -->
     <footer class="rodape-principal">
@@ -121,9 +174,7 @@
                 <p>A MelPal Tech é um projeto educacional desenvolvido para aplicar na prática conceitos de
                     desenvolvimento web, utilizando HTML, CSS, JavaScript e integração com Firebase. Este e-commerce
                     especializado em periféricos e componentes para computadores foi criado por Bryan Kauan como parte
-                    de seu aprendizado acadêmico. </p>
-                <p> <br> Observação: Os links no rodapé são elementos visuais funcionanais mas não possuem redes sociais
-                    para direcionamento. (Apenas o instagram e o GitHub que levam para os meus pessoais.) </p>
+                    de seu aprendizado acadêmico.</p>
             </div>
 
             <div class="secao-rodape">
@@ -193,7 +244,7 @@
     <!-- Modal Atendimento -->
     <div id="modalAtendimento" class="modal-atendimento">
         <div class="modal-conteudo">
-            <span class="fechar-modal-atendimento">&times;</span> <!-- Classe única -->
+            <span class="fechar-modal-atendimento">&times;</span>
             <h2 class="titulo-modal">Atendimento</h2>
             <div class="texto-modal">
                 <p><i class="fas fa-phone" style="color: #d32f2f;"></i> Telefone: (11) 1234-5678</p>
@@ -203,7 +254,7 @@
                 <p><i class="fas fa-exclamation-triangle" style="color: #d32f2f;"></i> Lembre-se: <strong>Essa loja não
                         existe realmente, é apenas um projeto escolar.</strong></p>
             </div>
-            <button class="botao-modal-atendimento">Entendi</button> <!-- Classe única -->
+            <button class="botao-modal-atendimento">Entendi</button>
         </div>
     </div>
 
@@ -230,7 +281,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="carrinho.js"></script>
 </body>
 
 </html>
