@@ -149,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // menu para mobiles 
-
 document.addEventListener('DOMContentLoaded', function () {
     const hamburguer = document.querySelector('.menu-hamburguer');
     const menuNav = document.querySelector('.menu-nav');
