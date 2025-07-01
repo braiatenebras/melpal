@@ -201,30 +201,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Recuperação de senha
-    const recoveryForm = document.getElementById('recovery-form');
-    if (recoveryForm) {
-        recoveryForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const email = document.getElementById('recovery-email').value;
-
-            if (!email) {
-                showAuthError('Por favor, preencha o campo de e-mail.', 'recovery');
-                return;
-            }
-
-            auth.sendPasswordResetEmail(email)
-                .then(() => {
-                    showSuccessMessage('E-mail de recuperação enviado com sucesso! Verifique sua caixa de entrada.', 'recovery');
-                    recoveryForm.reset();
-                })
-                .catch((error) => {
-                    showAuthError(error, 'recovery');
-                });
-        });
-    }
-
     // Verifica se o usuário já está logado
     auth.onAuthStateChanged((user) => {
         if (user) {
