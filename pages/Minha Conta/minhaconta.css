@@ -68,6 +68,10 @@
     color: white;
 }
 
+.menu-opcao i {
+    width: 15px;
+}
+
 .logout-btn {
     padding: 1rem;
     background: #f44336;
@@ -131,6 +135,17 @@
 
 .botao-salvar:hover {
     background: #b71c1c;
+}
+
+.botao {
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+    margin-top: 1rem;
 }
 
 .sem-pedidos,
