@@ -33,10 +33,75 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Função para mostrar mensagens de erro
-    function showAuthError(message) {
-        alert(message); 
+    // Função para traduzir mensagens de erro do Firebase
+    function getFriendlyErrorMessage(error) {
+        if (typeof error === 'string') return error;
+
+        switch (error.code) {
+            case 'auth/invalid-email':
+                return 'Por favor, insira um e-mail válido.';
+            case 'auth/user-disabled':
+                return 'Esta conta foi desativada.';
+            case 'auth/user-not-found':
+                return 'E-mail não cadastrado.';
+            case 'auth/wrong-password':
+                return 'Senha incorreta.';
+            case 'auth/email-already-in-use':
+                return 'Este e-mail já está em uso.';
+            case 'auth/weak-password':
+                return 'A senha deve ter pelo menos 6 caracteres.';
+            case 'auth/operation-not-allowed':
+                return 'Operação não permitida.';
+            case 'auth/too-many-requests':
+                return 'Muitas tentativas. Tente novamente mais tarde.';
+            default:
+                return 'Ocorreu um erro. Por favor, tente novamente ou se cadastre.';
+        }
     }
+
+    // Função para mostrar mensagens de erro na tela
+    function showAuthError(message, formType = 'login') {
+        const errorElement = document.getElementById(`${formType}-error`);
+        const friendlyMessage = getFriendlyErrorMessage(message);
+
+        if (errorElement) {
+            errorElement.textContent = friendlyMessage;
+            errorElement.style.display = 'block';
+
+            // Esconde a mensagem após 5 segundos
+            setTimeout(() => {
+                errorElement.style.display = 'none';
+            }, 5000);
+        } else {
+            console.error(friendlyMessage);
+        }
+    }
+
+    // Limpa mensagens de erro quando o usuário começa a digitar
+    function setupInputListeners() {
+        document.getElementById('login-email').addEventListener('input', () => {
+            const errorElement = document.getElementById('login-error');
+            if (errorElement) errorElement.style.display = 'none';
+        });
+
+        document.getElementById('login-senha').addEventListener('input', () => {
+            const errorElement = document.getElementById('login-error');
+            if (errorElement) errorElement.style.display = 'none';
+        });
+
+        document.getElementById('cadastro-email').addEventListener('input', () => {
+            const errorElement = document.getElementById('cadastro-error');
+            if (errorElement) errorElement.style.display = 'none';
+        });
+
+        document.getElementById('cadastro-senha').addEventListener('input', () => {
+            const errorElement = document.getElementById('cadastro-error');
+            if (errorElement) errorElement.style.display = 'none';
+        });
+    }
+
+    // Configura os listeners para limpar mensagens de erro
+    setupInputListeners();
 
     // Login com e-mail e senha
     const loginForm = document.getElementById('login-form');
@@ -46,13 +111,19 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-senha').value;
 
+        // Validação básica antes de enviar ao Firebase
+        if (!email || !password) {
+            showAuthError('Por favor, preencha todos os campos.', 'login');
+            return;
+        }
+
         auth.signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
                 // Login bem-sucedido
-                window.location.href = '../../index.html'; // Redireciona para a página inicial
+                window.location.href = '../../index.html';
             })
             .catch((error) => {
-                showAuthError(error.message);
+                showAuthError(error, 'login');
             });
     });
 
@@ -65,16 +136,31 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = document.getElementById('cadastro-email').value;
         const password = document.getElementById('cadastro-senha').value;
         const confirmPassword = document.getElementById('cadastro-confirmar-senha').value;
+        const termosAceitos = document.getElementById('cadastro-termos').checked;
 
-        // Verifica se as senhas coincidem
+        // Validações antes de enviar ao Firebase
+        if (!nome || !email || !password || !confirmPassword) {
+            showAuthError('Por favor, preencha todos os campos.', 'cadastro');
+            return;
+        }
+
+        if (!termosAceitos) {
+            showAuthError('Você deve aceitar os termos de uso.', 'cadastro');
+            return;
+        }
+
         if (password !== confirmPassword) {
-            showAuthError('As senhas não coincidem!');
+            showAuthError('As senhas não coincidem!', 'cadastro');
+            return;
+        }
+
+        if (password.length < 6) {
+            showAuthError('A senha deve ter pelo menos 6 caracteres.', 'cadastro');
             return;
         }
 
         auth.createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
-                // Cadastro bem-sucedido
                 const user = userCredential.user;
 
                 return user.updateProfile({
@@ -82,22 +168,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             })
             .then(() => {
-                window.location.href = '../../index.html'; 
+                window.location.href = '../../index.html';
             })
             .catch((error) => {
-                showAuthError(error.message);
+                showAuthError(error, 'cadastro');
             });
     });
 
-    // Verificar se o usuário já está logado
+    // Verifica se o usuário já está logado
     auth.onAuthStateChanged((user) => {
         if (user) {
-            // Usuário está logado
-            console.log('Usuário logado:', user.email);
-            // Você pode redirecionar ou atualizar a UI aqui
-        } else {
-            // Usuário não está logado
-            console.log('Nenhum usuário logado');
+            // Usuário já está autenticado, redireciona
+            window.location.href = '../../index.html';
         }
     });
 });

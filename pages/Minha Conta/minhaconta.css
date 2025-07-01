@@ -1,0 +1,164 @@
+/* Estilos específicos para a página Minha Conta */
+.conta-container {
+    padding: 2rem 0;
+    background-color: #f9f9f9;
+    min-height: 70vh;
+}
+
+.conta-info {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.conta-header {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+}
+
+.conta-header .avatar {
+    font-size: 5rem;
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.conta-header h2 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.conta-header p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.conta-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 250px;
+}
+
+.menu-opcao {
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.menu-opcao:hover {
+    background: #f0f0f0;
+}
+
+.menu-opcao.active {
+    background: #d32f2f;
+    color: white;
+}
+
+.menu-opcao.active i {
+    color: white;
+}
+
+.logout-btn {
+    padding: 1rem;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #d32f2f;
+}
+
+.conteudo-conta {
+    flex: 1;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.conta-secao {
+    display: none;
+}
+
+.conta-secao.active {
+    display: block;
+}
+
+.botao-salvar {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+    margin-top: 1rem;
+}
+
+.botao-salvar:hover {
+    background: #b71c1c;
+}
+
+.sem-pedidos,
+.sem-enderecos {
+    text-align: center;
+    padding: 3rem 0;
+    color: #666;
+}
+
+.sem-pedidos i,
+.sem-enderecos i {
+    font-size: 3rem;
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+.botao-adicionar {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.botao-adicionar:hover {
+    background: #388E3C;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .conta-info {
+        flex-direction: column;
+    }
+
+    .conta-header,
+    .conta-menu {
+        width: 100%;
+    }
+}
