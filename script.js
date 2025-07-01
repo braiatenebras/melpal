@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     carregarProdutos();
 });
 
+// Menu Hamburguer
 document.addEventListener('DOMContentLoaded', function () {
     const hamburguer = document.querySelector('.menu-hamburguer');
     const menuNav = document.querySelector('.menu-nav');
