@@ -77,6 +77,20 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Função para mostrar mensagens de sucesso
+    function showSuccessMessage(message, formType = 'recovery') {
+        const successElement = document.getElementById(`${formType}-success`);
+        if (successElement) {
+            successElement.textContent = message;
+            successElement.style.display = 'block';
+
+            // Esconde a mensagem após 5 segundos
+            setTimeout(() => {
+                successElement.style.display = 'none';
+            }, 5000);
+        }
+    }
+
     // Limpa mensagens de erro quando o usuário começa a digitar
     function setupInputListeners() {
         document.getElementById('login-email').addEventListener('input', () => {
@@ -98,6 +112,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const errorElement = document.getElementById('cadastro-error');
             if (errorElement) errorElement.style.display = 'none';
         });
+
+        // Listener para o campo de recuperação de senha
+        document.getElementById('recovery-email')?.addEventListener('input', () => {
+            const errorElement = document.getElementById('recovery-error');
+            const successElement = document.getElementById('recovery-success');
+            if (errorElement) errorElement.style.display = 'none';
+            if (successElement) successElement.style.display = 'none';
+        });
     }
 
     // Configura os listeners para limpar mensagens de erro
@@ -105,80 +127,107 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Login com e-mail e senha
     const loginForm = document.getElementById('login-form');
-    loginForm.addEventListener('submit', function (e) {
-        e.preventDefault();
+    if (loginForm) {
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-        const email = document.getElementById('login-email').value;
-        const password = document.getElementById('login-senha').value;
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-senha').value;
 
-        // Validação básica antes de enviar ao Firebase
-        if (!email || !password) {
-            showAuthError('Por favor, preencha todos os campos.', 'login');
-            return;
-        }
+            // Validação básica antes de enviar ao Firebase
+            if (!email || !password) {
+                showAuthError('Por favor, preencha todos os campos.', 'login');
+                return;
+            }
 
-        auth.signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                // Login bem-sucedido
-                window.location.href = '../../index.html';
-            })
-            .catch((error) => {
-                showAuthError(error, 'login');
-            });
-    });
+            auth.signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Login bem-sucedido
+                    window.location.href = '../../index.html';
+                })
+                .catch((error) => {
+                    showAuthError(error, 'login');
+                });
+        });
+    }
 
     // Cadastro de novo usuário
     const cadastroForm = document.getElementById('cadastro-form');
-    cadastroForm.addEventListener('submit', function (e) {
-        e.preventDefault();
+    if (cadastroForm) {
+        cadastroForm.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-        const nome = document.getElementById('cadastro-nome').value;
-        const email = document.getElementById('cadastro-email').value;
-        const password = document.getElementById('cadastro-senha').value;
-        const confirmPassword = document.getElementById('cadastro-confirmar-senha').value;
-        const termosAceitos = document.getElementById('cadastro-termos').checked;
+            const nome = document.getElementById('cadastro-nome').value;
+            const email = document.getElementById('cadastro-email').value;
+            const password = document.getElementById('cadastro-senha').value;
+            const confirmPassword = document.getElementById('cadastro-confirmar-senha').value;
+            const termosAceitos = document.getElementById('cadastro-termos').checked;
 
-        // Validações antes de enviar ao Firebase
-        if (!nome || !email || !password || !confirmPassword) {
-            showAuthError('Por favor, preencha todos os campos.', 'cadastro');
-            return;
-        }
+            // Validações antes de enviar ao Firebase
+            if (!nome || !email || !password || !confirmPassword) {
+                showAuthError('Por favor, preencha todos os campos.', 'cadastro');
+                return;
+            }
 
-        if (!termosAceitos) {
-            showAuthError('Você deve aceitar os termos de uso.', 'cadastro');
-            return;
-        }
+            if (!termosAceitos) {
+                showAuthError('Você deve aceitar os termos de uso.', 'cadastro');
+                return;
+            }
 
-        if (password !== confirmPassword) {
-            showAuthError('As senhas não coincidem!', 'cadastro');
-            return;
-        }
+            if (password !== confirmPassword) {
+                showAuthError('As senhas não coincidem!', 'cadastro');
+                return;
+            }
 
-        if (password.length < 6) {
-            showAuthError('A senha deve ter pelo menos 6 caracteres.', 'cadastro');
-            return;
-        }
+            if (password.length < 6) {
+                showAuthError('A senha deve ter pelo menos 6 caracteres.', 'cadastro');
+                return;
+            }
 
-        auth.createUserWithEmailAndPassword(email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
+            auth.createUserWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    const user = userCredential.user;
 
-                return user.updateProfile({
-                    displayName: nome
+                    return user.updateProfile({
+                        displayName: nome
+                    });
+                })
+                .then(() => {
+                    window.location.href = '../../index.html';
+                })
+                .catch((error) => {
+                    showAuthError(error, 'cadastro');
                 });
-            })
-            .then(() => {
-                window.location.href = '../../index.html';
-            })
-            .catch((error) => {
-                showAuthError(error, 'cadastro');
-            });
-    });
+        });
+    }
+
+    // Recuperação de senha
+    const recoveryForm = document.getElementById('recovery-form');
+    if (recoveryForm) {
+        recoveryForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = document.getElementById('recovery-email').value;
+
+            if (!email) {
+                showAuthError('Por favor, preencha o campo de e-mail.', 'recovery');
+                return;
+            }
+
+            auth.sendPasswordResetEmail(email)
+                .then(() => {
+                    showSuccessMessage('E-mail de recuperação enviado com sucesso! Verifique sua caixa de entrada.', 'recovery');
+                    recoveryForm.reset();
+                })
+                .catch((error) => {
+                    showAuthError(error, 'recovery');
+                });
+        });
+    }
 
     // Verifica se o usuário já está logado
     auth.onAuthStateChanged((user) => {
         if (user) {
-            // Usuário já está autenticado, redireciona
             window.location.href = '../../index.html';
         }
     });

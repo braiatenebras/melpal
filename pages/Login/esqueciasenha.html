@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha - MelPal Tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho-principal">
+        <div class="conteiner">
+            <div class="logo">
+                <img src="../../assets/MelPal.png" alt="MelPal - Loja de Hardware">
+            </div>
+            <div class="barra-busca">
+                <form id="form-busca" autocomplete="off">
+                    <input type="text" id="campo-busca" placeholder="Buscar produtos...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <div id="sugestoes-busca" class="sugestoes-container"></div>
+            </div>
+    </header>
+
+    <!-- Navegação -->
+    <nav class="navegacao-principal">
+        <div class="conteiner">
+            <button class="menu-hamburguer" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="menu-nav">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../Categorias/hardware.html">Hardware</a></li>
+                <li><a href="../Categorias/placasdevideo.html">Placas de Vídeo</a></li>
+                <li><a href="../Categorias/processadores.html">Processadores</a></li>
+                <li><a href="../Categorias/memorias.html">Memórias</a></li>
+                <li><a href="../Categorias/perifericos.html">Periféricos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Área de Recuperação de Senha -->
+    <main class="auth-container">
+        <div class="conteiner">
+            <!-- Formulário de recuperação -->
+            <form id="recovery-form" class="auth-form active">
+                <div id="recovery-error" class="error-message"></div>
+                <div id="recovery-success" class="success-message"></div>
+                <h2>Esqueceu sua senha?</h2>
+                <p>Digite seu e-mail para recuperar sua senha</p>
+
+                <div class="form-group">
+                    <label for="recovery-email">E-mail</label>
+                    <input type="email" id="recovery-email" required placeholder="Digite seu e-mail">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <button type="submit" class="auth-button">Enviar email de recuperação</button>
+                <div class="form-options">
+                    <a href="login.html" class="forgot-password">Voltar para o login</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape-principal">
+        <div class="conteiner">
+            <div class="secao-rodape">
+                <h4>Sobre Nós</h4>
+                <p>A MelPal Tech é um projeto educacional desenvolvido para aplicar na prática conceitos de
+                    desenvolvimento web, utilizando HTML, CSS, JavaScript e integração com Firebase. Este e-commerce
+                    especializado em periféricos e componentes para computadores foi criado por Bryan Kauan como parte
+                    de seu aprendizado acadêmico. </p>
+                <p> <br> Observação: Os links no rodapé são elementos visuais funcionanais mas não possuem redes sociais
+                    para direcionamento. (Apenas o instagram e o GitHub que levam para os meus pessoais.) </p>
+            </div>
+
+            <div class="secao-rodape">
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Trocas e Devoluções</a></li>
+                    <li><a href="#">Dúvidas Frequentes</a></li>
+                </ul>
+            </div>
+
+            <div class="secao-rodape">
+                <h4>Atendimento</h4>
+                <p><i class="fas fa-phone"></i> (11) 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contato@melpal.com.br</p>
+            </div>
+
+            <div class="secao-rodape">
+                <h4>Redes Sociais</h4>
+                <div class="icones-sociais">
+                    <a href="https://github.com/braiatenebras" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/eobraiak/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <h4>Formas de Pagamento</h4>
+                <div class="metodos-pagamento">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fas fa-barcode"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <div class="conteiner">
+                <p>&copy; 2025 Bryan Kauan - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="login.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+</body>
+
+</html>
