@@ -61,7 +61,6 @@
 
 .metodos-pagamento {
     display: flex;
-    justify-content: center;
     gap: 15px;
     font-size: 1.5rem;
     color: #666;
