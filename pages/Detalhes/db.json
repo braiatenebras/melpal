@@ -1296,6 +1296,236 @@
           "id": 21
         }
       ]
+    },
+    {
+      "id": 33,
+      "nome": "Capinha de celular temática do Gengar",
+      "categoria": "Outros",
+      "imagem": "https://lojamundootaku.com.br/cdn/shop/files/Se5160412ba354aca8b8643fbea93ae1es_584c76f9-cac8-42fc-93e7-c329a3326ba3.webp?v=1701186199",
+      "preco": 25.00,
+      "precoOriginal": 30.00,
+      "desconto": 5,
+      "parcelamento": "10x de 2,50 com juros",
+      "avaliacao": 5,
+      "avaliacoes": 500,
+      "vendidos": 1000,
+      "descricao": "Capinha de celular várias cores para vários modelos com temática do pokemon Gengar",
+      "beneficios": [
+        "Capinha de celular roxa",
+        "Temática do pokemon Gengar",
+        "Conforto e estilo",
+        "Compatível com vários modelos de celular"
+      ],
+      "especificacoes": {
+        "marca": "Capinha de celular temática",
+        "modelo": "Gengar",
+        "cor": "Diversas cores",
+        "tamanho": "Pequena",
+        "material": "Fibra de vidro"
+      },
+      "estoque": 14,
+      "destaque": false,
+      "relacionados": [
+        {
+          "id": 5
+        },
+        {
+          "id": 21
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "nome": "Pelúcia Gengar Gigante 50cm",
+      "categoria": "Colecionáveis",
+      "imagem": "https://down-br.img.susercontent.com/file/br-11134207-7r98o-m0l48jq76phd07",
+      "preco": 129.90,
+      "precoOriginal": 149.90,
+      "desconto": 13,
+      "parcelamento": "10x de R$ 12,99 sem juros",
+      "avaliacao": 4.9,
+      "avaliacoes": 215,
+      "vendidos": 180,
+      "descricao": "Pelúcia oficial do Pokémon Gengar com 50cm de altura, feita em material macio e de alta qualidade. Perfeita para fãs e colecionadores!",
+      "beneficios": [
+        "Licenciado oficialmente pela Pokémon Company",
+        "Material super macio e durável",
+        "Altura de 50cm - tamanho gigante",
+        "Detalhes fiéis ao personagem",
+        "Perfeito para decoração ou presente"
+      ],
+      "especificacoes": {
+        "marca": "Pokémon Center",
+        "material": "Poliester premium",
+        "altura": "50cm",
+        "peso": "400g",
+        "lavagem": "À mão"
+      },
+      "estoque": 25,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 33
+        },
+        {
+          "id": 35
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "nome": "Action Figure Gengar Shiny",
+      "categoria": "Colecionáveis",
+      "imagem": "https://down-br.img.susercontent.com/file/br-11134207-7r98o-m0t3fpnavuzk7b",
+      "preco": 89.90,
+      "precoOriginal": 99.90,
+      "desconto": 10,
+      "parcelamento": "10x de R$ 8,99 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 178,
+      "vendidos": 150,
+      "descricao": "Action Figure detalhada do Gengar Shiny (versão branca) da série Pokémon. Inclui base de exibição e articulações para diversas poses.",
+      "beneficios": [
+        "Versão Shiny (rara) do Gengar",
+        "Altura de 15cm com base incluída",
+        "Articulações para múltiplas poses",
+        "Pintura detalhada premium",
+        "Item de colecionador numerado"
+      ],
+      "especificacoes": {
+        "marca": "Banpresto",
+        "linha": "Pokémon Scale World",
+        "altura": "15cm",
+        "material": "PVC/ABS",
+        "articulacoes": 8,
+        "edicao": "Limitada"
+      },
+      "estoque": 12,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 33
+        },
+        {
+          "id": 34
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "nome": "Camiseta Gengar Estilo Vintage",
+      "categoria": "Vestuário",
+      "imagem": "https://example.com/camiseta-gengar.jpg",
+      "preco": 79.90,
+      "precoOriginal": 89.90,
+      "desconto": 11,
+      "parcelamento": "10x de R$ 7,99 sem juros",
+      "avaliacao": 4.7,
+      "avaliacoes": 342,
+      "vendidos": 280,
+      "descricao": "Camiseta premium com estampa vintage do Gengar. Feita em algodão penteado 30.1 para máximo conforto e durabilidade.",
+      "beneficios": [
+        "Estampa exclusiva estilo vintage",
+        "Algodão penteado 30.1 de alta qualidade",
+        "Disponível em tamanhos P a GG",
+        "Estampa resistente a lavagens",
+        "Malha respirável e confortável"
+      ],
+      "especificacoes": {
+        "marca": "Pokémon Wear",
+        "material": "100% algodão penteado",
+        "tamanhos": "P, M, G, GG",
+        "cores": "Preto, Roxo",
+        "estampa": "Serigrafia digital"
+      },
+      "estoque": 40,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 33
+        },
+        {
+          "id": 37
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "nome": "Caneca Gengar Glow in the Dark",
+      "categoria": "Casa e Cozinha",
+      "imagem": "https://example.com/caneca-gengar.jpg",
+      "preco": 49.90,
+      "precoOriginal": 59.90,
+      "desconto": 17,
+      "parcelamento": "10x de R$ 4,99 sem juros",
+      "avaliacao": 4.9,
+      "avaliacoes": 420,
+      "vendidos": 390,
+      "descricao": "Caneca especial do Gengar com efeito glow in the dark (brilha no escuro). Capacidade de 350ml e acabamento premium.",
+      "beneficios": [
+        "Efeito glow in the dark (brilha no escuro)",
+        "Capacidade de 350ml",
+        "Material cerâmico de alta qualidade",
+        "Impressão resistente à lavagem",
+        "Perfeita para café, chá ou coleção"
+      ],
+      "especificacoes": {
+        "marca": "Pokémon Kitchen",
+        "material": "Cerâmica",
+        "capacidade": "350ml",
+        "dimensoes": "10cm x 9cm",
+        "peso": "350g",
+        "lavagem": "Lava-louças seguro"
+      },
+      "estoque": 30,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 33
+        },
+        {
+          "id": 36
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "nome": "Quadro Decorativo Gengar Neon",
+      "categoria": "Decoração",
+      "imagem": "https://example.com/quadro-gengar.jpg",
+      "preco": 149.90,
+      "precoOriginal": 179.90,
+      "desconto": 17,
+      "parcelamento": "10x de R$ 14,99 sem juros",
+      "avaliacao": 4.8,
+      "avaliacoes": 95,
+      "vendidos": 80,
+      "descricao": "Quadro decorativo do Gengar com efeito neon, perfeito para gamers e fãs de Pokémon. Inclui sistema de iluminação LED USB.",
+      "beneficios": [
+        "Efeito neon com luz LED",
+        "Alimentação por USB (cabo incluído)",
+        "Moldura em acrílico de alta qualidade",
+        "Design moderno e gamer",
+        "Perfeito para quarto ou escritório"
+      ],
+      "especificacoes": {
+        "marca": "Pokémon Art",
+        "material": "Acrílico e LED",
+        "dimensoes": "30x40cm",
+        "alimentacao": "USB 5V",
+        "peso": "800g",
+        "garantia": "6 meses"
+      },
+      "estoque": 15,
+      "destaque": true,
+      "relacionados": [
+        {
+          "id": 34
+        },
+        {
+          "id": 37
+        }
+      ]
     }
   ]
 }

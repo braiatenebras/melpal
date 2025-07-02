@@ -4,11 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Detalhes do produto">
+    <title>Outros - MelPal Tech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="detalhes.css">
     <link rel="stylesheet" href="../../styles.css">
-    <title id="produto-titulo">Produto - MelPal</title>
 </head>
 
 <body>
@@ -33,7 +31,7 @@
     <header class="cabecalho-principal">
         <div class="conteiner">
             <div class="logo">
-                <a href="/../../index.html"><img src="/assets/MelPal.png" alt="MelPal - Loja de Hardware"></a>
+                <img src="../../assets/MelPal.png" alt="MelPal - Loja de Hardware">
             </div>
             <div class="barra-busca">
                 <form id="form-busca" autocomplete="off">
@@ -54,78 +52,112 @@
             </button>
             <ul class="menu-nav">
                 <li><a href="../../index.html">Home</a></li>
-                <li><a href="../Categorias/hardware.html">Hardware</a></li>
-                <li><a href="../Categorias/placasdevideo.html">Placas de Vídeo</a></li>
-                <li><a href="../Categorias/processadores.html">Processadores</a></li>
-                <li><a href="../Categorias/memorias.html">Memórias</a></li>
-                <li><a href="../Categorias/perifericos.html">Periféricos</a></li>
-                <li><a href="../Categorias/outros.html">Outros</a></li>
+                <li><a href="hardware.html">Hardware</a></li>
+                <li><a href="placasdevideo.html">Placas de Vídeo</a></li>
+                <li><a href="processadores.html">Processadores</a></li>
+                <li><a href="memorias.html">Memórias</a></li>
+                <li><a href="perifericos.html">Periféricos</a></li>
+                <li><a href="outros.html">Outros</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Conteúdo Principal -->
-    <main class="conteiner-produto">
+    <!-- Seção de Outros -->
+    <section class="produtos-destaque">
         <div class="conteiner">
-            <div class="caminho-produto">
-                <a href="/../../index.html">Home</a> > <a href="/pages/Produtos/loja.html">Loja</a> > <span
-                    id="categoria-produto"></span> > <span id="nome-produto-caminho"></span>
-            </div>
+            <h2 class="titulo-secao">Outros</h2>
+            <div class="grade-produtos">
 
-            <div class="detalhes-produto">
-                <div class="imagem-produto">
-                    <img id="produto-imagem" src="" alt="Imagem do produto">
-                </div>
-
-                <div class="info-produto">
-                    <span class="vendidos" id="produto-vendidos"></span>
-                    <h1 id="produto-nome"></h1>
-
+                <!-- Capinha do Gengar -->
+                <div class="cartao-produto">
+                    <img src="https://lojamundootaku.com.br/cdn/shop/files/Se5160412ba354aca8b8643fbea93ae1es_584c76f9-cac8-42fc-93e7-c329a3326ba3.webp?v=1701186199"
+                        alt="Capinha do Gengar">
+                    <span class="etiqueta-desconto">-5%</span>
+                    <h3>Capinha de celular temática do Gengar</h3>
+                    <div class="preco">
+                        <span class="preco-antigo">R$ 30,00</span>
+                        <span class="preco-atual">R$ 25,00</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 2,50 com juros</div>
                     <div class="avaliacao">
-                        <div class="estrelas" id="produto-avaliacao"></div>
-                        <span id="produto-avaliacoes"></span>
+                        ★★★★★ (500)
                     </div>
+                    <button class="botao-carrinho"
+                        onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=33'">Comprar</button>
+                </div>
 
-                    <div class="preco-container">
-                        <p class="preco" id="produto-preco"></p>
-                        <p class="preco-original" id="produto-preco-original"></p>
+                <!-- Pelúcia Gengar -->
+                <div class="cartao-produto">
+                    <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m0l48jq76phd07"
+                        alt="Pelúcia Gengar Gigante">
+                    <span class="etiqueta-desconto">-13%</span>
+                    <h3>Pelúcia Gengar Gigante 50cm</h3>
+                    <div class="preco">
+                        <span class="preco-antigo">R$ 149,90</span>
+                        <span class="preco-atual">R$ 129,90</span>
                     </div>
-
-                    <div class="parcelamento" id="produto-parcelamento"></div>
-
-                    <div class="frete">
-                        <i class="fas fa-truck"></i>
-                        <span>Frete grátis para todo o Brasil em compras acima de R$ 500,00</span>
+                    <div class="parcelamento">10x de R$ 12,99 sem juros</div>
+                    <div class="avaliacao">
+                        ★★★★★ (215)
                     </div>
+                    <button class="botao-carrinho"
+                        onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=34'">Comprar</button>
+                </div>
 
-                    <div class="quantidade-container">
-                        <label for="quantidade">Quantidade:</label>
-                        <div class="quantidade-input">
-                            <button class="qtd-btn menos">-</button>
-                            <input type="number" id="quantidade" value="1" min="1" max="10">
-                            <button class="qtd-btn mais">+</button>
-                        </div>
+                <!-- Action Figure Gengar -->
+                <div class="cartao-produto">
+                    <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m0t3fpnavuzk7b"
+                        alt="Action Figure Gengar Shiny">
+                    <span class="etiqueta-desconto">-10%</span>
+                    <h3>Action Figure Gengar Shiny</h3>
+                    <div class="preco">
+                        <span class="preco-antigo">R$ 99,90</span>
+                        <span class="preco-atual">R$ 89,90</span>
                     </div>
+                    <div class="parcelamento">10x de R$ 8,99 sem juros</div>
+                    <div class="avaliacao">
+                        ★★★★☆ (178)
+                    </div>
+                    <button class="botao-carrinho"
+                        onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=35'">Comprar</button>
+                </div>
 
-                    <button class="botao-carrinho btn-comprar" id="adicionar-carrinho">Adicionar ao Carrinho</button>
+                <!-- Camiseta Gengar -->
+                <div class="cartao-produto">
+                    <img src="https://down-br.img.susercontent.com/file/8583e50ac433d053c77c3ebab0e1eba1"
+                        alt="Camiseta Gengar Vintage">
+                    <span class="etiqueta-desconto">-11%</span>
+                    <h3>Camiseta Gengar Estilo Vintage</h3>
+                    <div class="preco">
+                        <span class="preco-antigo">R$ 89,90</span>
+                        <span class="preco-atual">R$ 79,90</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 7,99 sem juros</div>
+                    <div class="avaliacao">
+                        ★★★★☆ (342)
+                    </div>
+                    <button class="botao-carrinho"
+                        onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=36'">Comprar</button>
+                </div>
+                <!-- Quadro Gengar -->
+                <div class="cartao-produto">
+                    <img src="https://a-static.mlcdn.com.br/1500x1500/decoracao-de-quarto-infantil-led-neon-light-sign-usb-regulavel-pokemon-gengar-cartoon-para-festa-de-miniso/aliexpress/205096995/3d35ac0a779aa30c9f5df576fa6383c4.jpeg"
+                        alt="Quadro Decorativo Gengar Neon">
+                    <span class="etiqueta-desconto">-17%</span>
+                    <h3>Quadro Decorativo Gengar Neon</h3>
+                    <div class="preco">
+                        <span class="preco-antigo">R$ 179,90</span>
+                        <span class="preco-atual">R$ 149,90</span>
+                    </div>
+                    <div class="parcelamento">10x de R$ 14,99 sem juros</div>
+                    <div class="avaliacao">
+                        ★★★★☆ (95)
+                    </div>
+                    <button class="botao-carrinho"
+                        onclick="window.location.href='../../pages/Detalhes/detalhes.html?id=38'">Comprar</button>
                 </div>
             </div>
-
-            <div class="descricao-produto">
-                <h3>Descrição do Produto</h3>
-                <p class="descricao" id="produto-descricao"></p>
-
-                <h3>Benefícios</h3>
-                <ul id="produto-beneficios"></ul>
-            </div>
-
-            <section class="produtos-relacionados">
-                <h2 class="titulo-secao">Produtos Relacionados</h2>
-                <div class="grade-produtos" id="produtos-relacionados">
-                </div>
-            </section>
-        </div>
-    </main>
+    </section>
 
     <!-- Rodapé -->
     <footer class="rodape-principal">
@@ -249,7 +281,7 @@
         </div>
 
     </footer>
-    <script src="detalhes.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
