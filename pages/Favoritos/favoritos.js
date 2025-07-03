@@ -78,11 +78,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 btn.addEventListener('click', function () {
                     const index = parseInt(this.dataset.index);
                     const produto = favoritos[index];
-                    
+
                     // Adiciona ao carrinho
                     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
                     const itemExistente = carrinho.find(item => item.id === produto.id);
-                    
+
                     if (itemExistente) {
                         itemExistente.quantidade += 1;
                     } else {
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             quantidade: 1
                         });
                     }
-                    
+
                     localStorage.setItem('carrinho', JSON.stringify(carrinho));
                     alert('Produto adicionado ao carrinho!');
                 });
@@ -220,14 +220,4 @@ document.addEventListener('DOMContentLoaded', function () {
         carregarProdutos();
     });
 
-    // MENU HAMBURGUER
-    document.addEventListener('DOMContentLoaded', function () {
-        const hamburguer = document.querySelector('.menu-hamburguer');
-        const menuNav = document.querySelector('.menu-nav');
-
-        hamburguer.addEventListener('click', function () {
-            this.classList.toggle('aberto');
-            menuNav.classList.toggle('aberto');
-        });
-    });
 });
