@@ -472,6 +472,7 @@ a {
 .quantidade-input {
     display: flex;
     align-items: center;
+    margin-bottom: 25px;
 }
 
 .qtd-btn {
@@ -506,6 +507,28 @@ a {
     margin: 0;
 }
 
+.favoritos {
+    margin-left: 20px;
+}
+
+.favoritos button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.6rem;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.favoritos button:hover {
+    color: #ff6b6b;
+}
+
+.favoritos button .fas.fa-heart.active {
+    color: #ff4757;
+}
+
 .btn-comprar {
     background-color: #d32f2f;
     color: white;
@@ -516,8 +539,6 @@ a {
     border-radius: 4px;
     transition: all 0.3s ease;
     font-size: 16px;
-    margin-top: 20px;
-    width: 100%;
 }
 
 .btn-comprar:hover {
@@ -545,7 +566,7 @@ a {
 }
 
 .grade-produtos {
-    display: flex !important    ;
+    display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
@@ -609,21 +630,6 @@ a {
     font-size: 0.9rem;
 }
 
-.botao-carrinho {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: bold;
-}
-
-.botao-carrinho:hover {
-    background-color: #b71c1c;
-}
 
 /* Adicione no arquivo detalhes.css */
 .feedback-carrinho {

@@ -126,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             document.getElementById('produto-nome').textContent = produtoAtual.nome;
             document.getElementById('produto-imagem').src = produtoAtual.imagem;
-            document.getElementById('produto-imagem').alt = produtoAtual.nome;
             document.getElementById('produto-descricao').textContent = produtoAtual.descricao;
             document.getElementById('categoria-produto').textContent = produtoAtual.categoria;
             document.getElementById('nome-produto-caminho').textContent = produtoAtual.nome;

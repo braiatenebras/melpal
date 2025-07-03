@@ -101,6 +101,11 @@
     margin-bottom: 10px;
 }
 
+.titulo-secao {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
 .item-carrinho-controles {
     display: flex;
     align-items: center;
