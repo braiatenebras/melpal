@@ -10,25 +10,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
+    const db = firebase.firestore();
 
-    // Verifica se o usuário está logado
     auth.onAuthStateChanged(function (user) {
         if (!user) {
             alert("Você precisa fazer login para acessar seus favoritos.");
             window.location.href = "../Login/login.html";
         } else {
             console.log("Usuário logado:", user.email);
-            iniciarFavoritos();
+            iniciarFavoritos(user);
         }
     });
 
-    // Função principal dos favoritos
-    function iniciarFavoritos() {
-        const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+    function iniciarFavoritos(user) {
         const itensContainer = document.querySelector('.itens-favoritos');
+        const favoritosRef = db.collection("usuarios").doc(user.uid).collection("favoritos");
 
-        // Atualiza a exibição dos favoritos
-        function atualizarFavoritos() {
+        async function carregarFavoritos() {
+            const snapshot = await favoritosRef.get();
+            return snapshot.docs.map(doc => ({ idDoc: doc.id, ...doc.data() }));
+        }
+
+        async function atualizarFavoritos() {
+            const favoritos = await carregarFavoritos();
             itensContainer.innerHTML = '';
 
             if (favoritos.length === 0) {
@@ -42,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            favoritos.forEach((item, index) => {
+            favoritos.forEach((item) => {
                 const itemElement = document.createElement('div');
                 itemElement.className = 'item-favorito';
                 itemElement.innerHTML = `
@@ -51,10 +55,10 @@ document.addEventListener('DOMContentLoaded', function () {
                         <h3 class="item-favorito-titulo">${item.nome}</h3>
                         <div class="item-favorito-preco">R$ ${item.preco.toFixed(2).replace('.', ',')}</div>
                         <div class="item-favorito-acoes">
-                            <button class="adicionar-carrinho" data-index="${index}">
+                            <button class="adicionar-carrinho" data-id="${item.id}">
                                 <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
                             </button>
-                            <button class="remover-favorito" data-index="${index}">
+                            <button class="remover-favorito" data-id="${item.idDoc}">
                                 <i class="fas fa-trash"></i> Remover
                             </button>
                         </div>
@@ -63,45 +67,43 @@ document.addEventListener('DOMContentLoaded', function () {
                 itensContainer.appendChild(itemElement);
             });
 
-            // Event listener para remover itens dos favoritos
             document.querySelectorAll('.remover-favorito').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const index = parseInt(this.dataset.index);
-                    favoritos.splice(index, 1);
-                    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+                btn.addEventListener('click', async function () {
+                    const idDoc = this.dataset.id;
+                    await favoritosRef.doc(idDoc).delete();
                     atualizarFavoritos();
                 });
             });
 
-            // Event listener para adicionar ao carrinho
             document.querySelectorAll('.adicionar-carrinho').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const index = parseInt(this.dataset.index);
-                    const produto = favoritos[index];
+                btn.addEventListener('click', async function () {
+                    const id = this.dataset.id;
+                    const doc = await favoritosRef.where("id", "==", id).limit(1).get();
+                    if (!doc.empty) {
+                        const produto = doc.docs[0].data();
 
-                    // Adiciona ao carrinho
-                    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-                    const itemExistente = carrinho.find(item => item.id === produto.id);
+                        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+                        const itemExistente = carrinho.find(item => item.id === produto.id);
 
-                    if (itemExistente) {
-                        itemExistente.quantidade += 1;
-                    } else {
-                        carrinho.push({
-                            ...produto,
-                            quantidade: 1
-                        });
+                        if (itemExistente) {
+                            itemExistente.quantidade += 1;
+                        } else {
+                            carrinho.push({
+                                ...produto,
+                                quantidade: 1
+                            });
+                        }
+
+                        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+                        alert('Produto adicionado ao carrinho!');
                     }
-
-                    localStorage.setItem('carrinho', JSON.stringify(carrinho));
-                    alert('Produto adicionado ao carrinho!');
                 });
             });
         }
 
-        // Inicializa os favoritos
         atualizarFavoritos();
 
-        // Configuração dos modais (igual ao carrinho)
+        // Modais
         const modalFrete = document.getElementById('modalFrete');
         const modalAtendimento = document.getElementById('modalAtendimento');
         const modalLocalizacao = document.getElementById('modalLocalizacao');
@@ -219,5 +221,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
         carregarProdutos();
     });
-
 });

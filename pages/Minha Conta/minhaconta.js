@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // ==================== CONFIGURAÇÃO DO FIREBASE ====================
     const firebaseConfig = {
         apiKey: "AIzaSyDhAYCiRFLHWV79jfjM1YBP0cgOpZFf11c",
         authDomain: "melpal.firebaseapp.com",
@@ -8,41 +9,154 @@ document.addEventListener('DOMContentLoaded', function () {
         appId: "1:1044309712631:web:3370112f3055bc20c23df2"
     };
 
+    // Inicializa o Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
+    const db = firebase.firestore();
 
+    // ==================== ELEMENTOS DOM ====================
+    // Elementos da conta
     const nomeUsuario = document.getElementById('nome-usuario');
     const emailUsuario = document.getElementById('email-usuario');
     const nomeCompletoInput = document.getElementById('nome-completo');
     const emailInput = document.getElementById('email');
+    const telefoneInput = document.getElementById('telefone');
     const logoutBtn = document.getElementById('logout-btn');
     const menuOpcoes = document.querySelectorAll('.menu-opcao');
     const conteudoSecoes = document.querySelectorAll('.conta-secao');
+    const formDados = document.getElementById('form-dados');
+    const formSenha = document.getElementById('form-senha');
+    const adicionarEnderecoBtn = document.getElementById('adicionar-endereco');
+    const listaEnderecos = document.querySelector('.lista-enderecos');
 
-    // verificar estado de autenticação
-    auth.onAuthStateChanged(user => {
+    // Elementos de busca
+    const campoBusca = document.getElementById('campo-busca');
+    const sugestoesContainer = document.getElementById('sugestoes-busca');
+    const formBusca = document.getElementById('form-busca');
+    let produtos = [];
+
+    // Elementos do menu hamburguer
+    const hamburguer = document.querySelector('.menu-hamburguer');
+    const menuNav = document.querySelector('.menu-nav');
+
+    // Elementos dos modais
+    const modais = {
+        frete: {
+            link: document.getElementById('frete-gratis-link'),
+            modal: document.getElementById('modalFrete'),
+            fechar: document.querySelector('.fechar-modal'),
+            botao: document.querySelector('.botao-modal')
+        },
+        atendimento: {
+            link: document.getElementById('modal-atendimento'),
+            modal: document.getElementById('modalAtendimento'),
+            fechar: document.querySelector('.fechar-modal-atendimento'),
+            botao: document.querySelector('.botao-modal-atendimento')
+        },
+        localizacao: {
+            link: document.getElementById('modal-localizacao'),
+            modal: document.getElementById('modalLocalizacao'),
+            fechar: document.querySelector('.fechar-modal-localizacao'),
+            botao: document.querySelector('.botao-modal-localizacao')
+        }
+    };
+
+    // ==================== FUNÇÕES DA CONTA ====================
+    // Carrega e exibe os dados do usuário
+    auth.onAuthStateChanged(async user => {
         if (user) {
-            // usuário está logado
-            nomeUsuario.textContent = user.displayName || 'Usuário';
-            emailUsuario.textContent = user.email;
+            const userRef = db.collection('users').doc(user.uid);
 
-            // preencher formulário de dados
-            nomeCompletoInput.value = user.displayName || '';
-            emailInput.value = user.email;
+            try {
+                const doc = await userRef.get();
+
+                if (doc.exists) {
+                    updateUIWithUserData(user, doc.data());
+                } else {
+                    await userRef.set({
+                        nome: user.displayName || '',
+                        email: user.email,
+                        telefone: '',
+                        enderecos: [],
+                        dataCriacao: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    updateUIWithUserData(user);
+                }
+            } catch (error) {
+                console.error("Erro ao carregar dados:", error);
+                alert("Erro ao carregar dados do usuário");
+            }
         } else {
-            // usuário não está logado, redirecionar para login
             window.location.href = '../Login/login.html';
         }
     });
 
-    // Logout
-    logoutBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        auth.signOut().then(() => {
-            window.location.href = '../Login/login.html';
-        }).catch(error => {
-            alert('Erro ao fazer logout: ' + error.message);
+    function updateUIWithUserData(user, userData = null) {
+        const displayName = userData?.nome || user.displayName || 'Usuário';
+        const email = userData?.email || user.email;
+        const telefone = userData?.telefone || '';
+
+        nomeUsuario.textContent = displayName;
+        emailUsuario.textContent = email;
+        nomeCompletoInput.value = displayName;
+        emailInput.value = email;
+        telefoneInput.value = telefone;
+
+        if (userData?.enderecos?.length > 0) {
+            renderEnderecos(userData.enderecos);
+        }
+    }
+
+    function renderEnderecos(enderecos) {
+        listaEnderecos.innerHTML = enderecos.length === 0 ? `
+            <div class="sem-enderecos">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Você ainda não cadastrou nenhum endereço</p>
+            </div>
+        ` : enderecos.map((endereco, index) => `
+            <div class="endereco-item">
+                <p><strong>Endereço ${index + 1}:</strong></p>
+                <p>${endereco.endereco}, ${endereco.numero}</p>
+                <p>CEP: ${endereco.cep}</p>
+                ${endereco.complemento ? `<p>Complemento: ${endereco.complemento}</p>` : ''}
+                <button class="remover-endereco" data-index="${index}">
+                    <i class="fas fa-trash"></i> Remover
+                </button>
+            </div>
+        `).join('');
+
+        document.querySelectorAll('.remover-endereco').forEach(btn => {
+            btn.addEventListener('click', async (e) => {
+                await removerEndereco(e.target.getAttribute('data-index'));
+            });
         });
+    }
+
+    async function removerEndereco(index) {
+        const user = auth.currentUser;
+        if (!user) return;
+
+        try {
+            const userRef = db.collection('users').doc(user.uid);
+            const userDoc = await userRef.get();
+            const enderecos = userDoc.data().enderecos;
+
+            enderecos.splice(index, 1);
+            await userRef.update({ enderecos });
+            renderEnderecos(enderecos);
+        } catch (error) {
+            console.error("Erro ao remover endereço:", error);
+            alert("Erro ao remover endereço");
+        }
+    }
+
+    // ==================== EVENT LISTENERS DA CONTA ====================
+    // Logout
+    logoutBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        auth.signOut()
+            .then(() => window.location.href = '../Login/login.html')
+            .catch(error => alert('Erro ao fazer logout: ' + error.message));
     });
 
     // Alternar entre seções
@@ -50,39 +164,78 @@ document.addEventListener('DOMContentLoaded', function () {
         opcao.addEventListener('click', function () {
             const section = this.getAttribute('data-section');
 
-            // Remover classe active de todas as opções
             menuOpcoes.forEach(op => op.classList.remove('active'));
-            // Adicionar classe active à opção clicada
             this.classList.add('active');
 
-            // Esconder todas as seções
             conteudoSecoes.forEach(sec => sec.classList.remove('active'));
-            // Mostrar a seção correspondente
             document.getElementById(`${section}-secao`).classList.add('active');
         });
     });
 
     // Salvar dados do usuário
-    const formDados = document.getElementById('form-dados');
-    formDados.addEventListener('submit', function (e) {
+    formDados.addEventListener('submit', async (e) => {
         e.preventDefault();
-
         const user = auth.currentUser;
-        if (user) {
-            user.updateProfile({
-                displayName: nomeCompletoInput.value
-            }).then(() => {
-                alert('Dados atualizados com sucesso!');
-                nomeUsuario.textContent = nomeCompletoInput.value;
-            }).catch(error => {
-                alert('Erro ao atualizar dados: ' + error.message);
+        if (!user) return;
+
+        try {
+            await db.collection('users').doc(user.uid).update({
+                nome: nomeCompletoInput.value,
+                email: emailInput.value,
+                telefone: telefoneInput.value
             });
+
+            if (nomeCompletoInput.value !== user.displayName) {
+                await user.updateProfile({ displayName: nomeCompletoInput.value });
+            }
+
+            if (emailInput.value !== user.email) {
+                await user.updateEmail(emailInput.value);
+            }
+
+            alert('Dados atualizados com sucesso!');
+            nomeUsuario.textContent = nomeCompletoInput.value;
+        } catch (error) {
+            console.error("Erro ao atualizar dados:", error);
+            alert("Erro ao atualizar dados: " + error.message);
         }
     });
 
+    // Adicionar endereço
+    adicionarEnderecoBtn.addEventListener('click', () => {
+        const novoEndereco = {
+            cep: prompt("Digite o CEP:"),
+            endereco: prompt("Digite o endereço:"),
+            numero: prompt("Digite o número:"),
+            complemento: prompt("Digite o complemento (opcional):") || ''
+        };
+
+        if (novoEndereco.cep && novoEndereco.endereco && novoEndereco.numero) {
+            adicionarEndereco(novoEndereco);
+        } else {
+            alert("Preencha pelo menos CEP, endereço e número");
+        }
+    });
+
+    async function adicionarEndereco(novoEndereco) {
+        const user = auth.currentUser;
+        if (!user) return;
+
+        try {
+            await db.collection('users').doc(user.uid).update({
+                enderecos: firebase.firestore.FieldValue.arrayUnion(novoEndereco)
+            });
+
+            const userDoc = await db.collection('users').doc(user.uid).get();
+            renderEnderecos(userDoc.data().enderecos);
+        } catch (error) {
+            console.error("Erro ao adicionar endereço:", error);
+            alert("Erro ao adicionar endereço");
+        }
+    }
+
     // Alterar senha
-    const formSenha = document.getElementById('form-senha');
-    formSenha.addEventListener('submit', function (e) {
+    formSenha.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const senhaAtual = document.getElementById('senha-atual').value;
@@ -95,214 +248,102 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const user = auth.currentUser;
-        const credential = firebase.auth.EmailAuthProvider.credential(
-            user.email,
-            senhaAtual
-        );
+        const credential = firebase.auth.EmailAuthProvider.credential(user.email, senhaAtual);
 
-        user.reauthenticateWithCredential(credential).then(() => {
-            return user.updatePassword(novaSenha);
-        }).then(() => {
-            alert('Senha alterada com sucesso!');
-            formSenha.reset();
-        }).catch(error => {
-            alert('Erro ao alterar senha: ' + error.message);
-        });
+        user.reauthenticateWithCredential(credential)
+            .then(() => user.updatePassword(novaSenha))
+            .then(() => {
+                alert('Senha alterada com sucesso!');
+                formSenha.reset();
+            })
+            .catch(error => alert('Erro ao alterar senha: ' + error.message));
     });
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    // elementos do DOM
-    const campoBusca = document.getElementById('campo-busca');
-    const sugestoesContainer = document.getElementById('sugestoes-busca');
-    const formBusca = document.getElementById('form-busca');
-    let produtos = [];
-
-    // carrega os produtos do JSON
+    // ==================== FUNÇÕES DE BUSCA ====================
     async function carregarProdutos() {
         try {
             const response = await fetch('../Detalhes/db.json');
             if (!response.ok) throw new Error('Erro ao carregar produtos');
-            const data = await response.json();
-            produtos = data.produtos;
+            produtos = (await response.json()).produtos;
         } catch (error) {
             console.error('Erro:', error);
         }
     }
 
-    // mostra sugestões de busca
     function mostrarSugestoes(termo) {
-        sugestoesContainer.innerHTML = '';
-
         if (!termo || termo.length < 2) {
             sugestoesContainer.style.display = 'none';
             return;
         }
 
         const termoLower = termo.toLowerCase();
-        const sugestoes = produtos.filter(produto =>
-            produto.nome.toLowerCase().includes(termoLower)
-        ).slice(0, 5); // limita a 5 sugestões
+        const sugestoes = produtos.filter(p =>
+            p.nome.toLowerCase().includes(termoLower)
+        ).slice(0, 5);
 
-        if (sugestoes.length > 0) {
-            sugestoesContainer.innerHTML = sugestoes.map(produto => `
-                <div class="sugestao-item" data-id="${produto.id}">
-                    <img src="${produto.imagem}" alt="${produto.nome}">
+        sugestoesContainer.innerHTML = sugestoes.length > 0 ?
+            sugestoes.map(p => `
+                <div class="sugestao-item" data-id="${p.id}">
+                    <img src="${p.imagem}" alt="${p.nome}">
                     <div>
-                        <div class="sugestao-nome">${produto.nome}</div>
-                        <div class="sugestao-preco">${formatarPreco(produto.preco)}</div>
+                        <div class="sugestao-nome">${p.nome}</div>
+                        <div class="sugestao-preco">${formatarPreco(p.preco)}</div>
                     </div>
                 </div>
-            `).join('');
+            `).join('') : '';
 
-            sugestoesContainer.style.display = 'block';
+        sugestoesContainer.style.display = sugestoes.length > 0 ? 'block' : 'none';
 
-            // adiciona evento de clique nas sugestões
-            document.querySelectorAll('.sugestao-item').forEach(item => {
-                item.addEventListener('click', function () {
-                    const id = this.getAttribute('data-id');
-                    window.location.href = `../Detalhes/detalhes.html?id=${id}`;
-                });
+        document.querySelectorAll('.sugestao-item').forEach(item => {
+            item.addEventListener('click', () => {
+                window.location.href = `../Detalhes/detalhes.html?id=${item.getAttribute('data-id')}`;
             });
-        } else {
-            sugestoesContainer.style.display = 'none';
-        }
+        });
     }
 
-    // Formata preço
     function formatarPreco(preco) {
         return 'R$ ' + preco.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, '$1.');
     }
 
-    // Eventos
-    campoBusca.addEventListener('input', function () {
-        mostrarSugestoes(this.value);
+    // ==================== EVENT LISTENERS DE BUSCA ====================
+    campoBusca.addEventListener('input', () => mostrarSugestoes(campoBusca.value));
+    campoBusca.addEventListener('focus', () => {
+        if (campoBusca.value.length >= 2) mostrarSugestoes(campoBusca.value);
     });
-
-    campoBusca.addEventListener('focus', function () {
-        if (this.value.length >= 2) {
-            mostrarSugestoes(this.value);
-        }
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.barra-busca')) sugestoesContainer.style.display = 'none';
     });
-
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('.barra-busca')) {
-            sugestoesContainer.style.display = 'none';
-        }
-    });
-
-    formBusca.addEventListener('submit', function (e) {
+    formBusca.addEventListener('submit', (e) => {
         e.preventDefault();
-        const termo = campoBusca.value.trim();
-        if (termo) {
-            console.log('Buscar por:', termo);
-        }
+        if (campoBusca.value.trim()) console.log('Buscar por:', campoBusca.value.trim());
     });
 
-    // Inicializa
-    carregarProdutos();
-});
-
-// menu hamburguer
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburguer = document.querySelector('.menu-hamburguer');
-    const menuNav = document.querySelector('.menu-nav');
-
+    // ==================== MENU HAMBURGUER ====================
     hamburguer.addEventListener('click', function () {
         this.classList.toggle('aberto');
         menuNav.classList.toggle('aberto');
     });
-});
 
-// Modal Frete Grátis
-document.addEventListener('DOMContentLoaded', function () {
-    const freteGratisLink = document.getElementById('frete-gratis-link');
-    const modalFrete = document.getElementById('modalFrete');
-    const fecharModal = document.querySelector('.fechar-modal');
-    const botaoModal = document.querySelector('.botao-modal');
+    // ==================== MODAIS ====================
+    Object.values(modais).forEach(({ link, modal, fechar, botao }) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
 
-    freteGratisLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        modalFrete.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-
-    fecharModal.addEventListener('click', function () {
-        modalFrete.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    botaoModal.addEventListener('click', function () {
-        modalFrete.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-        if (e.target === modalFrete) {
-            modalFrete.style.display = 'none';
+        const fecharModal = () => {
+            modal.style.display = 'none';
             document.body.style.overflow = 'auto';
-        }
-    });
-});
+        };
 
-// Modal Atendimento 
-document.addEventListener('DOMContentLoaded', function () {
-    const atendimentoLink = document.getElementById('modal-atendimento');
-    const modalAtendimento = document.getElementById('modalAtendimento');
-    const fecharModalAtendimento = document.querySelector('.fechar-modal-atendimento');
-    const botaoModalAtendimento = document.querySelector('.botao-modal-atendimento');
-
-    atendimentoLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        modalAtendimento.style.display = 'block';
-        document.body.style.overflow = 'hidden';
+        fechar.addEventListener('click', fecharModal);
+        botao.addEventListener('click', fecharModal);
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) fecharModal();
+        });
     });
 
-    fecharModalAtendimento.addEventListener('click', function () {
-        modalAtendimento.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    botaoModalAtendimento.addEventListener('click', function () {
-        modalAtendimento.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-        if (e.target === modalAtendimento) {
-            modalAtendimento.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
-});
-
-// Modal Localização 
-document.addEventListener('DOMContentLoaded', function () {
-    const localizacaoLink = document.getElementById('modal-localizacao');  // ID corrigido
-    const modalLocalizacao = document.getElementById('modalLocalizacao');
-    const fecharModalLocalizacao = document.querySelector('.fechar-modal-localizacao');  // Seletor único
-    const botaoModalLocalizacao = document.querySelector('.botao-modal-localizacao');  // Seletor único
-
-    localizacaoLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        modalLocalizacao.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
-
-    fecharModalLocalizacao.addEventListener('click', function () {
-        modalLocalizacao.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    botaoModalLocalizacao.addEventListener('click', function () {
-        modalLocalizacao.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-        if (e.target === modalLocalizacao) {
-            modalLocalizacao.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
+    // ==================== INICIALIZAÇÃO ====================
+    carregarProdutos();
 });
