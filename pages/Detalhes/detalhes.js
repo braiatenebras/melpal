@@ -99,6 +99,60 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 3000);
     }
 
+    // Função para adicionar/remover dos favoritos
+    function toggleFavorito(produto) {
+        let favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+        const index = favoritos.findIndex(item => item.id === produto.id);
+        
+        if (index === -1) {
+            // Adicionar aos favoritos
+            favoritos.push({
+                id: produto.id,
+                nome: produto.nome,
+                preco: produto.preco,
+                imagem: produto.imagem,
+                precoOriginal: produto.precoOriginal || null
+            });
+            mostrarFeedbackFavorito(true);
+        } else {
+            // Remover dos favoritos
+            favoritos.splice(index, 1);
+            mostrarFeedbackFavorito(false);
+        }
+        
+        localStorage.setItem('favoritos', JSON.stringify(favoritos));
+        atualizarIconeFavorito(produto.id);
+    }
+
+    // Função para mostrar feedback visual dos favoritos
+    function mostrarFeedbackFavorito(adicionado) {
+        const feedback = document.createElement('div');
+        feedback.className = 'feedback-favorito';
+        feedback.innerHTML = `
+            <i class="fas fa-heart"></i>
+            <span>${adicionado ? 'Adicionado aos' : 'Removido dos'} favoritos!</span>
+        `;
+        document.body.appendChild(feedback);
+
+        setTimeout(() => {
+            feedback.remove();
+        }, 3000);
+    }
+
+    // Função para atualizar o ícone do favorito
+    function atualizarIconeFavorito(produtoId) {
+        const favoritos = JSON.parse(localStorage.getItem('favoritos')) || [];
+        const favoritoBtn = document.querySelector('.favoritos button i');
+        
+        if (favoritos.some(item => item.id == produtoId)) {
+            favoritoBtn.classList.remove('far');
+            favoritoBtn.classList.add('fas');
+        } else {
+            favoritoBtn.classList.remove('fas');
+            favoritoBtn.classList.add('far');
+        }
+    }
+
     // Função principal para carregar os dados do produto
     async function carregarDetalhesProduto() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -121,9 +175,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            // Preencher informações do produto
             document.title = `${produtoAtual.nome} - MelPal Tech`;
             document.getElementById('produto-titulo').textContent = produtoAtual.nome;
-
             document.getElementById('produto-nome').textContent = produtoAtual.nome;
             document.getElementById('produto-imagem').src = produtoAtual.imagem;
             document.getElementById('produto-descricao').textContent = produtoAtual.descricao;
@@ -159,6 +213,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
             }
 
+            // Verificar e atualizar estado do favorito
+            atualizarIconeFavorito(produtoId);
+
+            // Event listeners
             document.querySelector('.qtd-btn.mais').addEventListener('click', function () {
                 const input = document.getElementById('quantidade');
                 if (parseInt(input.value) < 10) {
@@ -177,7 +235,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 adicionarAoCarrinho(produtoAtual);
             });
 
-            // ⚠️ Aqui está a chamada para carregar os produtos relacionados
+            document.querySelector('.favoritos button').addEventListener('click', function() {
+                toggleFavorito(produtoAtual);
+            });
+
+            // Carregar produtos relacionados
             carregarProdutosRelacionados(produtoAtual.relacionados, data.produtos);
 
         } catch (error) {
@@ -186,126 +248,119 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Inicializar
     carregarDetalhesProduto();
-});
 
-
-// Modal Frete Grátis
-document.addEventListener('DOMContentLoaded', function () {
+    // Modal Frete Grátis
     const freteGratisLink = document.getElementById('frete-gratis-link');
     const modalFrete = document.getElementById('modalFrete');
     const fecharModal = document.querySelector('.fechar-modal');
     const botaoModal = document.querySelector('.botao-modal');
 
-    freteGratisLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        modalFrete.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
+    if (freteGratisLink && modalFrete) {
+        freteGratisLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            modalFrete.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
 
-    fecharModal.addEventListener('click', function () {
-        modalFrete.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    botaoModal.addEventListener('click', function () {
-        modalFrete.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-        if (e.target === modalFrete) {
+        fecharModal.addEventListener('click', function () {
             modalFrete.style.display = 'none';
             document.body.style.overflow = 'auto';
-        }
-    });
-});
+        });
 
-// Modal Atendimento 
-document.addEventListener('DOMContentLoaded', function () {
+        botaoModal.addEventListener('click', function () {
+            modalFrete.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', function (e) {
+            if (e.target === modalFrete) {
+                modalFrete.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Modal Atendimento
     const atendimentoLink = document.getElementById('modal-atendimento');
     const modalAtendimento = document.getElementById('modalAtendimento');
     const fecharModalAtendimento = document.querySelector('.fechar-modal-atendimento');
     const botaoModalAtendimento = document.querySelector('.botao-modal-atendimento');
 
-    atendimentoLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        modalAtendimento.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
+    if (atendimentoLink && modalAtendimento) {
+        atendimentoLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            modalAtendimento.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
 
-    fecharModalAtendimento.addEventListener('click', function () {
-        modalAtendimento.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    botaoModalAtendimento.addEventListener('click', function () {
-        modalAtendimento.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-        if (e.target === modalAtendimento) {
+        fecharModalAtendimento.addEventListener('click', function () {
             modalAtendimento.style.display = 'none';
             document.body.style.overflow = 'auto';
-        }
-    });
-});
+        });
 
+        botaoModalAtendimento.addEventListener('click', function () {
+            modalAtendimento.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
 
+        window.addEventListener('click', function (e) {
+            if (e.target === modalAtendimento) {
+                modalAtendimento.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
 
-// Modal Localização 
-document.addEventListener('DOMContentLoaded', function () {
-    const localizacaoLink = document.getElementById('modal-localizacao');  // ID corrigido
+    // Modal Localização
+    const localizacaoLink = document.getElementById('modal-localizacao');
     const modalLocalizacao = document.getElementById('modalLocalizacao');
-    const fecharModalLocalizacao = document.querySelector('.fechar-modal-localizacao');  // Seletor único
-    const botaoModalLocalizacao = document.querySelector('.botao-modal-localizacao');  // Seletor único
+    const fecharModalLocalizacao = document.querySelector('.fechar-modal-localizacao');
+    const botaoModalLocalizacao = document.querySelector('.botao-modal-localizacao');
 
-    localizacaoLink.addEventListener('click', function (e) {
-        e.preventDefault();
-        modalLocalizacao.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    });
+    if (localizacaoLink && modalLocalizacao) {
+        localizacaoLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            modalLocalizacao.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
 
-    fecharModalLocalizacao.addEventListener('click', function () {
-        modalLocalizacao.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    botaoModalLocalizacao.addEventListener('click', function () {
-        modalLocalizacao.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-
-    window.addEventListener('click', function (e) {
-        if (e.target === modalLocalizacao) {
+        fecharModalLocalizacao.addEventListener('click', function () {
             modalLocalizacao.style.display = 'none';
             document.body.style.overflow = 'auto';
-        }
-    });
-});
+        });
 
+        botaoModalLocalizacao.addEventListener('click', function () {
+            modalLocalizacao.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
 
+        window.addEventListener('click', function (e) {
+            if (e.target === modalLocalizacao) {
+                modalLocalizacao.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
 
-// menu hamburguer
-document.addEventListener('DOMContentLoaded', function () {
+    // Menu hamburguer
     const hamburguer = document.querySelector('.menu-hamburguer');
     const menuNav = document.querySelector('.menu-nav');
 
-    hamburguer.addEventListener('click', function () {
-        this.classList.toggle('aberto');
-        menuNav.classList.toggle('aberto');
-    });
-});
+    if (hamburguer && menuNav) {
+        hamburguer.addEventListener('click', function () {
+            this.classList.toggle('aberto');
+            menuNav.classList.toggle('aberto');
+        });
+    }
 
-document.addEventListener('DOMContentLoaded', function () {
-    // elementos do DOM
+    // Barra de busca
     const campoBusca = document.getElementById('campo-busca');
     const sugestoesContainer = document.getElementById('sugestoes-busca');
     const formBusca = document.getElementById('form-busca');
     let produtos = [];
 
-    // carrega os produtos do JSON
     async function carregarProdutos() {
         try {
             const response = await fetch('db.json');
@@ -317,8 +372,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // mostra sugestões de busca
     function mostrarSugestoes(termo) {
+        if (!sugestoesContainer) return;
+        
         sugestoesContainer.innerHTML = '';
 
         if (!termo || termo.length < 2) {
@@ -329,7 +385,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const termoLower = termo.toLowerCase();
         const sugestoes = produtos.filter(produto =>
             produto.nome.toLowerCase().includes(termoLower)
-        ).slice(0, 5); // limita a 5 sugestões
+        ).slice(0, 5);
 
         if (sugestoes.length > 0) {
             sugestoesContainer.innerHTML = sugestoes.map(produto => `
@@ -344,7 +400,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
             sugestoesContainer.style.display = 'block';
 
-            // adiciona evento de clique nas sugestões
             document.querySelectorAll('.sugestao-item').forEach(item => {
                 item.addEventListener('click', function () {
                     const id = this.getAttribute('data-id');
@@ -356,36 +411,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Formata preço
-    function formatarPreco(preco) {
-        return 'R$ ' + preco.toFixed(2).replace('.', ',').replace(/(\d)(?=(\d{3})+\,)/g, '$1.');
-    }
-
-    // Eventos
-    campoBusca.addEventListener('input', function () {
-        mostrarSugestoes(this.value);
-    });
-
-    campoBusca.addEventListener('focus', function () {
-        if (this.value.length >= 2) {
+    if (campoBusca && sugestoesContainer && formBusca) {
+        campoBusca.addEventListener('input', function () {
             mostrarSugestoes(this.value);
-        }
-    });
+        });
 
-    document.addEventListener('click', function (e) {
-        if (!e.target.closest('.barra-busca')) {
-            sugestoesContainer.style.display = 'none';
-        }
-    });
+        campoBusca.addEventListener('focus', function () {
+            if (this.value.length >= 2) {
+                mostrarSugestoes(this.value);
+            }
+        });
 
-    formBusca.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const termo = campoBusca.value.trim();
-        if (termo) {
-            console.log('Buscar por:', termo);
-        }
-    });
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.barra-busca')) {
+                sugestoesContainer.style.display = 'none';
+            }
+        });
 
-    // Inicializa
-    carregarProdutos();
+        formBusca.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const termo = campoBusca.value.trim();
+            if (termo) {
+                console.log('Buscar por:', termo);
+            }
+        });
+
+        carregarProdutos();
+    }
 });

@@ -1,0 +1,139 @@
+.conteudo-favoritos {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+    min-height: calc(100vh - 300px);
+}
+
+.favoritos-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.itens-favoritos {
+    flex: 2;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.titulo-secao {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color: #d32f2f;
+}
+
+.item-favorito {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+.item-favorito:last-child {
+    border-bottom: none;
+}
+
+.item-favorito-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.item-favorito-info {
+    flex: 1;
+}
+
+.item-favorito-titulo {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.item-favorito-preco {
+    color: #d32f2f;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.item-favorito-acoes {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.remover-favorito {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.remover-favorito:hover {
+    color: #d32f2f;
+}
+
+.adicionar-carrinho {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.adicionar-carrinho:hover {
+    background-color: #b71c1c;
+}
+
+.favoritos-vazio {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.favoritos-vazio i {
+    font-size: 3rem;
+    color: #d32f2f;
+    margin-bottom: 20px;
+}
+
+.favoritos-vazio p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.produtos-sugeridos {
+    margin-top: 40px;
+}
+
+.produtos-sugeridos h3 {
+    color: #d32f2f;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .item-favorito {
+        flex-direction: column;
+    }
+
+    .item-favorito-img {
+        width: 100%;
+        height: auto;
+    }
+}
